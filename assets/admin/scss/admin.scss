@@ -1,0 +1,19 @@
+@import url("https://use.typekit.net/olb5syp.css");
+
+// Load settings
+@import "../../scss/settings";
+@import "../../scss/mixins";
+
+// Import common styles
+@import "../../scss/common/global";
+@import "../../scss/common/typography";
+
+// Import layout styles
+@import "../../scss/layouts/blocks";
+
+.wp-block,
+.block-list-appender {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>Arrow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Web" transform="translate(-349.000000, -497.000000)">
+            <g id="Hero" transform="translate(221.000000, 138.000000)">
+                <g id="Content" transform="translate(0.000000, 25.000000)">
+                    <g id="CTA" transform="translate(0.000000, 321.000000)">
+                        <g id="Arrow" transform="translate(129.000000, 14.000000)">
+                            <circle id="Oval" stroke="#FFFFFF" cx="9.99999999" cy="9.99999999" r="10"></circle>
+                            <path d="M10.4285714,8.39688206 L10.4285714,13.615188 C10.4285714,14.0249583 10.0798205,14.3571428 9.64285713,14.3571428 C9.20891911,14.3571428 8.85714284,14.0269644 8.85714284,13.615188 L8.85714284,8.39688206 L7.0555839,10.198441 C6.74874338,10.5052815 6.25125659,10.5052815 5.94441607,10.198441 C5.63757559,9.89160052 5.63757559,9.39411374 5.94441607,9.08727321 L9.08727321,5.94441607 C9.39411374,5.63757559 9.89160052,5.63757559 10.198441,5.94441607 L13.3412982,9.08727321 C13.6481387,9.39411374 13.6481387,9.89160052 13.3412982,10.198441 C13.0344577,10.5052815 12.5369709,10.5052815 12.2301304,10.198441 L10.4285714,8.39688206 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero" transform="translate(9.642857, 10.035714) rotate(-270.000000) translate(-9.642857, -10.035714) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

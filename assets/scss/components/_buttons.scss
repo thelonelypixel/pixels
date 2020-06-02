@@ -1,0 +1,23 @@
+// Custom Button Styles
+
+.button {
+    display: inline-block;
+    margin: 2rem 0;
+    background: $primary;
+    color: $lightest;
+    line-height: 1.7;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 1rem 2rem;
+	border-radius: 4px;
+    font-family: $header-font-family;
+    border: none;
+    transition: 600ms $cubic;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        background: lighten($primary, 10%);
+        color: $lightest;
+    }
+}

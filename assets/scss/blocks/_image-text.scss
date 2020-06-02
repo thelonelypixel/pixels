@@ -1,0 +1,50 @@
+.block__image-text {
+    &--flipped {
+        .block__image-text__image {
+            @include bp(desktop) {
+                order: 2;
+            }
+        }
+
+        .block__image-text__content {
+            @include bp(desktop) {
+                order: 1;
+            }
+        }
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+        order: 1;
+        margin-bottom: 2rem;
+
+        @include bp(tablet) {
+            width: 40%;
+            margin-bottom: 0;
+        }
+
+        img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        order: 2;
+        margin: 0 auto;
+        padding: 2rem 0;
+
+        @include bp(tablet) {
+            padding: 3rem;
+            width: 60%;
+        }
+        @include bp(tablet) {
+            width: 60%;
+            max-width: 500px;
+        }
+    }
+}

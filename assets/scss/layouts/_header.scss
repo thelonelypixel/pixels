@@ -1,0 +1,10 @@
+header[role="banner"] {
+    position: relative;
+    padding: 2rem 0;
+    z-index: 9999;
+
+    .brand img {
+        width: 120px;
+        height: auto;
+    }
+}

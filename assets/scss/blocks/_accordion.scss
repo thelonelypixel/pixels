@@ -1,0 +1,54 @@
+.block__accordion {
+    padding: 4rem 0;
+    text-align: center;
+    @include bp(tablet) {
+        padding: 8rem 0;
+    }
+
+    &__content,
+    &__heading {
+        width: 100%;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 760px;
+        text-align: left;
+
+        li {
+            background: $light;
+            margin-bottom: 2rem;
+
+            a {
+                display: block;
+                width: 100%;
+                padding: 2rem 4rem 2rem 2rem;
+                text-decoration: none;
+                font-weight: 700;
+                color: $primary;
+                font-size: 1.8rem;
+                background: url("../../assets/images/arrow-down.svg") no-repeat 95% center / 15px 15px;
+
+                &.active {
+                    background-image: url("../../assets/images/arrow-up.svg");
+                }
+
+                @include bp(tablet) {
+                    font-size: 2rem;
+                    background: url("../../assets/images/arrow-down.svg") no-repeat 95% center / 20px 20px;
+                }
+                @include bp(desktop) {
+                    font-size: 2.2rem;
+                    background: url("../../assets/images/arrow-down.svg") no-repeat 95% center / 25px 25px;
+                }
+            }
+
+            .accordion-content {
+                padding: 0 2rem 2rem;
+                display: none;
+            }
+        }
+    }
+}
