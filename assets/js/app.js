@@ -84,34 +84,39 @@
 					dots: true,
 				});
 
-				// Intersection Observer Callback Function
-				blockObserverCallback = function (entries, observer) {
-					entries.forEach(function (entry) {
-						if (entry.isIntersecting) {
-							console.log("Entry is intersecting");
-							entry.target.classList.add('in-view');
-							observer.unobserve(entry.target);
-						}
-					});
-				};
+				if ('IntersectionObserver' in window) {
+	   				// Intersection Observer Callback Function
+	   				blockObserverCallback = function (entries, observer) {
+	   					entries.forEach(function (entry) {
+	   						if (entry.isIntersecting) {
+	   							entry.target.classList.add('in-view');
+	   							observer.unobserve(entry.target);
+	   						}
+	   					});
+	   				};
 
-				// Intersection Observer Options
-				var blockObserverOptions = {
-					root: null,
-					rootMargin: '0% 0% -60% 0%',
-					threshold: 0,
-				}
+					// Intersection Observer Options
+	   				var blockObserverOptions = {
+	   					root: null,
+	   					rootMargin: '0% 0% -30% 0%',
+	   					threshold: 0,
+	   				}
 
-				// Creation of Intersection Observer
-				var blockObserver = new IntersectionObserver(blockObserverCallback, blockObserverOptions);
+					// Creation of Intersection Observer
+	   				var blockObserver = new IntersectionObserver(blockObserverCallback, blockObserverOptions);
+	   				// Intersection Observer Elements to observe
+	   				blockObserverElements = document.querySelectorAll('.block');
+	   				// Pass Elements to Observer
+	   				blockObserverElements.forEach(function (blockObserverElement) {
+	   					blockObserver.observe(blockObserverElement);
+	   				});
 
-				// Intersection Observer Elements to observe
-				blockObserverElements = document.querySelectorAll('.block');
-
-				// Pass Elements to Observer
-				blockObserverElements.forEach(function (blockObserverElement) {
-					blockObserver.observe(blockObserverElement);
-				});
+				} else {
+	   				blockObserverElements = document.querySelectorAll('.block');
+	   				blockObserverElements.forEach(function (blockObserverElement) {
+	   					blockObserverElement.classList.add('in-view');
+	   				});
+	   			}
 
 				// wrap embeds in div
 				$('iframe[src^="https://www.youtube.com/embed/"]').wrap('<div class="embed"></div>');
