@@ -170,6 +170,10 @@ nav.nav-mobile {
 				text-align: center;
 				text-decoration: none;
 
+				@include bp(desktop) {
+					font-size: 4rem;
+				}
+
 				&::after {
 					content: "";
 					width: 100%;

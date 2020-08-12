@@ -71,9 +71,9 @@ footer[role="contentinfo"] {
         margin-top: 2rem;
 		width: 300px;
 		height: 30px;
-		color: $primary;
+		color: $lightest;
 		overflow: hidden;
-		font-size: 1.6rem;
+		font-size: 1.4rem;
 
         @include bp(tablet) {
             text-align: right;
