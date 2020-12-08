@@ -1,10 +1,11 @@
 <?php
-	$margin = get_field('add_margin');
-	$heading = get_field('heading');
-	$button = get_field('make_buttons');
+$id = get_field("id");
+$margin = get_field('add_margin');
+$heading = get_field('heading');
+$button = get_field('make_buttons');
 ?>
 
-<section class="block block__cards<?php if( $margin ): ?> add-margin<?php endif; ?>">
+<section <?php if( $id ): ?>id="<?php echo $id; ?>"<?php endif; ?> class="block block__cards<?php if( $margin ): ?> add-margin<?php endif; ?>">
 	<div class="container">
 		<?php if( $heading ): ?>
 			<div class="block__cards__heading">

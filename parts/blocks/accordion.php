@@ -1,9 +1,10 @@
 <?php
+$id = get_field("id");
 $margin_bottom = get_field('add_margin');
 $heading = get_field('heading');
 ?>
 
-<section class="block block__accordion <?php if($margin_bottom) : echo ' add-margin'; endif; ?>">
+<section <?php if( $id ): ?>id="<?php echo $id; ?>"<?php endif; ?> class="block block__accordion <?php if($margin_bottom) : echo ' add-margin'; endif; ?>">
 	<div class="container row row--justified">
 		<div class="block__accordion__heading">
 			<h3><?php echo $heading; ?></h3>

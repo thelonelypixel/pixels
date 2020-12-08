@@ -13,7 +13,7 @@ $image-path: '../../assets/images/';
 // Colour Scheme
 $primary: #101827;
 $green: #01FFC5;
-$light-grey: #f8f8f8;
+$light-grey: #f2f2f2;
 $medium-grey: #eaeaea;
 $dark-grey: #cccccc;
 $dark: #4a4a4a;
@@ -68,13 +68,13 @@ $input-focus-border-color:$primary;
 $table-striped: even;
 $table-striped-background: $light-grey;
 $table-header-background: #eeeeee;
-$table-header-padding: rem-calc(10 12 10 12);
+$table-header-padding: 1rem;
 $table-header-weight: $global-weight-bold;
 $table-body-background: #ffffff;
-$table-body-padding: rem-calc(10 12 10 12);
+$table-body-padding: 1rem;
 $table-body-weight: $global-weight-normal;
 $table-footer-background: #eeeeee;
-$table-footer-padding: rem-calc(10 12 10 12);
+$table-footer-padding: 1rem;
 $table-footer-weight: $global-weight-normal;
 
 // Grid

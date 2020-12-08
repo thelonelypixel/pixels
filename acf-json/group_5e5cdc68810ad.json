@@ -3,9 +3,42 @@
     "title": "Block: Video",
     "fields": [
         {
-            "key": "field_5e7df8dcc9cb7",
+            "key": "field_5fcf844265da5",
+            "label": "Video",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5fcf8e1219fb9",
+            "label": "Options",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5fcf8e1a19fba",
             "label": "ID",
-            "name": "video_id",
+            "name": "id",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -20,6 +53,22 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5fcf844b65da6",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
         },
         {
             "key": "field_5e5cde639209f",
@@ -39,30 +88,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_5e7df846d6287",
-            "label": "Placeholder",
-            "name": "video_placeholder",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
         }
     ],
     "location": [
@@ -82,5 +107,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1597236850
+    "modified": 1607437856
 }

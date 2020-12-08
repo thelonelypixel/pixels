@@ -3,6 +3,58 @@
     "title": "Block: CTA",
     "fields": [
         {
+            "key": "field_5fcf8536d7d09",
+            "label": "CTA",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5fcf853dd7d0a",
+            "label": "Options",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5fcf8dcc8b1e8",
+            "label": "ID",
+            "name": "id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5ea3630892107",
             "label": "Add Margin",
             "name": "add_margin",
@@ -41,10 +93,10 @@
             "delay": 0
         },
         {
-            "key": "field_5ea35e091498c",
-            "label": "Button Text",
-            "name": "cta_button_text",
-            "type": "text",
+            "key": "field_5fcf8545d7d0b",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -53,30 +105,8 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ea35e181498d",
-            "label": "Button Link",
-            "name": "cta_button_link",
-            "type": "page_link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": "",
-            "taxonomy": "",
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
+            "placement": "top",
+            "endpoint": 0
         }
     ],
     "location": [
@@ -96,5 +126,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1597236834
+    "modified": 1607437776
 }

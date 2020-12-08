@@ -29,6 +29,7 @@ function register_acf_block_types()
         'icon'              => 'format-image',
         'keywords'          => array( 'hero', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 
     acf_register_block_type(array(
@@ -39,6 +40,7 @@ function register_acf_block_types()
         'icon'              => 'format-image',
         'keywords'          => array( 'cta', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 
     acf_register_block_type(array(
@@ -49,6 +51,7 @@ function register_acf_block_types()
         'icon'              => 'format-image',
         'keywords'          => array( 'image', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 
     acf_register_block_type(array(
@@ -59,6 +62,7 @@ function register_acf_block_types()
         'icon'              => 'format-image',
         'keywords'          => array( 'video', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 
     acf_register_block_type(array(
@@ -69,6 +73,7 @@ function register_acf_block_types()
         'icon'              => 'format-image',
         'keywords'          => array( 'cards', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 
     acf_register_block_type(array(
@@ -79,6 +84,7 @@ function register_acf_block_types()
         'icon'              => 'format-image',
         'keywords'          => array( 'image-text', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 
     acf_register_block_type(array(
@@ -89,6 +95,7 @@ function register_acf_block_types()
         'icon'              => 'format-image',
         'keywords'          => array( 'recent-posts', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 
     acf_register_block_type(array(
@@ -99,6 +106,7 @@ function register_acf_block_types()
         'icon'              => 'format-image',
         'keywords'          => array( 'accordion', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 
     acf_register_block_type(array(
@@ -109,6 +117,7 @@ function register_acf_block_types()
         'icon'              => 'editor-alignleft',
         'keywords'          => array( 'banner', 'quote' ),
         'supports'			=> array( 'align' => false),
+        'mode' => 'edit',
     ));
 }
 
