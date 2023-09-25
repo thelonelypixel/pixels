@@ -1,0 +1,16 @@
+{
+    "name": "acf/media",
+    "title": "Media",
+    "description": "A custom media block.",
+    "style": [ "file:./media.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["media", "quote"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "media.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

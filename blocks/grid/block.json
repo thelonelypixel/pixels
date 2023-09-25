@@ -1,0 +1,16 @@
+{
+    "name": "acf/grid",
+    "title": "Grid",
+    "description": "A custom grid block.",
+    "style": [ "file:./grid.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["grid", "quote"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "grid.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

@@ -1,10 +1,54 @@
 header[role="banner"] {
     position: relative;
     padding: 2rem 0;
+    width: 100%;
+    background: var(--color-neutral-100);
+    border-bottom: 1px solid var(--color-neutral-300);
     z-index: 9999;
 
+    &.offcanvas-open {
+        background: var(--color-neutral-300);
+        position: fixed;
+        top: 0;
+    }
+
+    .brand {
+        z-index: 10;
+    }
+
     .brand img {
-        width: 120px;
+        width: 40px;
         height: auto;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .header__inner {
+
+        &.header-layout--default {
+            .brand {
+                margin-right: 60px;
+            }
+        }
+
+        &.header-layout--right {
+            .row {
+                justify-content: flex-end;
+
+                .brand {
+                    position: absolute;
+                    left: 0;
+                }
+            }
+        }
+
+        &.header-layout--hamburger {
+            .row {
+                justify-content: space-between;
+            }
+        }
+
     }
 }

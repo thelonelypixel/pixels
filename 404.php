@@ -8,7 +8,7 @@
 
 				<header>
 					<span>404</span>
-					<h1><?php esc_html_e( 'We&rsquo;re sorry, but it looks like the content you are looking for may have moved!', 'mirai' ); ?></h1>
+					<h1><?php esc_html_e( 'Page not found!', 'mirai' ); ?></h1>
 				</header>
 
 				<section>

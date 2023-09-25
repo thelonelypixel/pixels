@@ -1,26 +1,56 @@
 footer[role="contentinfo"] {
-	background: #f5f5f5;
-	padding: 4rem 0;
+	background: $secondary;
+	padding: 8rem 0;
 
 	.site-footer__top {
 		display: flex;
-		flex-wrap: wrap;
 		justify-content: space-between;
+		flex-direction: column;
+		flex-wrap: wrap;
 
         @include bp(tablet) {
-            margin-bottom: 8rem;
+            margin-bottom: 4rem;
+			padding-bottom: 4rem;
+			border-bottom: 1px solid rgba($light, .1);
+			flex-direction: row;
         }
 
+		h2,h3,h4,h5,h6,a {
+			color: $lightest;
+		}
+
 		.site-footer__column {
-			width: calc(50% - 2rem);
+			width: 100%;
 			margin-bottom: 2rem;
+
+			@include bp(tablet) {
+				width: calc(50% - 2rem);
+			}
+
 			@include bp(desktop) {
-				width: calc(25% - 2rem);
+				width: calc(10% - 2rem);
 				margin-bottom: 0;
 			}
 
-			h3 {
-				font-size: 2.4rem;
+			&:first-child {
+				@include bp ( desktop ) {
+					width: calc(40% - 2rem);
+				}
+			}
+
+			img {
+				margin-bottom: 20px;
+			}
+
+			a {
+				text-decoration: none;
+				color: $text-color;
+				transition: 300ms $cubic;
+				text-wrap: nowrap;
+
+				&:hover {
+					color: $primary;
+				}
 			}
 
 			ul {
@@ -41,6 +71,8 @@ footer[role="contentinfo"] {
 				}
 
 				&.footer-socials {
+					margin-top: 20px;
+
 					li {
 						display: inline-block;
 						margin-right: 2rem;
@@ -71,9 +103,7 @@ footer[role="contentinfo"] {
         margin-top: 2rem;
 		width: 300px;
 		height: 30px;
-		color: $lightest;
 		overflow: hidden;
-		font-size: 1.4rem;
 
         @include bp(tablet) {
             text-align: right;
@@ -85,6 +115,7 @@ footer[role="contentinfo"] {
 			position: absolute;
 			top: 0;
 			left: 0;
+			color: $text-color;
 			transition: 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 			width: 100%;
 			text-align: left;

@@ -1,0 +1,53 @@
+.block__media {
+    .media-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+
+        .video-poster {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s; /* Adjust 0.5s to your desired fade duration */
+            opacity: 1;
+            aspect-ratio: 16/9; // Match the video
+            z-index: 1;
+    
+            &.hidden {
+                opacity: 0;
+                pointer-events: none; /* This makes sure the poster doesn't block clicks even when invisible */
+
+                ~ svg {
+                    opacity: 0;
+                }
+            }
+
+        }
+
+        .media-poster {
+
+
+            svg {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                transition: 300ms $cubic;
+
+                &:hover {
+                    transform: translate(-50%, -50%) scale(1.1);
+                }
+
+                path {
+                    stroke: $primary;
+                    fill: $lightest;
+                }
+            }
+        }
+    }
+}

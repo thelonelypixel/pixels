@@ -9,7 +9,9 @@
 		margin-bottom: 8rem;
 
 	    &__intro {
-	        padding: 4rem 0;
+	        padding: 6rem 0;
+			margin-bottom: 6rem;
+			border-bottom: 1px solid $light;
 
 	        h1 {
 	            margin: 0;
@@ -18,79 +20,74 @@
 
 	    &__posts {
 	        width: 100%;
-	        display: flex;
-			flex-wrap: wrap;
+	        display: grid;
+			grid-template-columns: repeat(1, 1fr);  
+			grid-gap: 20px;
+			row-gap: 20px;
+
+			@include bp(tablet) {
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: 30px;
+				row-gap: 30px;
+			}
+
+			@include bp(desktop) {
+				grid-template-columns: repeat(3, 1fr); 
+				grid-gap: 40px;
+				row-gap: 40px;
+			}
 	    }
 
 	    &__post {
 	        width: 100%;
-	        height: 240px;
 	        position: relative;
-			margin-bottom: 2rem;
 	        text-decoration: none;
-	        overflow: hidden;
-
-			@include bp(tablet) {
-				width: calc(50% - 2rem);
-				margin-right: 3rem;
-
-				&:nth-child(2n) {
-					margin-right: 0;
-				}
-
-			}
-
-			@include bp(desktop) {
-				width: calc(33.333% - 2rem);
-
-				&:nth-child(2n) {
-					margin-right: 3rem;
-				}
-
-				&:nth-child(3n) {
-					margin-right: 0;
-				}
-			}
 
 	        img {
 	            width: 100%;
-	            height: 100%;
-	            position: absolute;
 	            top: 0;
 	            left: 0;
 	            display: block;
 	            object-fit: cover;
 	            transition: 600ms;
+				aspect-ratio: 5/3;
+				border-radius: var(--rounded-3xl);
 	        }
 
-	        &-content {
-	            max-width: 480px;
-				height: 100%;
-	            padding: 2rem;
+	        &__content {
 	            position: relative;
+				padding: 2rem 0;
 	            z-index: 2;
-	            opacity: 0;
-	            transition: 600ms;
 
-	            h2,
-	            h3,
-	            h4,
-	            h5,
-	            h6,
-	            p,
-	            a {
-	                font-family: $global-font-family;
-	                color: $lightest;
-	            }
+				.post-meta {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 10px;
+				}
+
+				a {
+					text-decoration: none;
+				}
 
 	            .title {
-	                margin: 0;
-	                font-size: 2.4rem;
 	                line-height: 1.2;
 	            }
 
+				.categories {
+					margin: 1rem 0;
+
+					a {
+						background: $light;
+						padding: 5px 10px;
+						font-size: 12px;
+						border-radius: 100px;
+					}
+				}
+
 	            .date {
-	                margin: 1rem 0 0 0;
+	                margin: 1rem 0;
+					font-size: 14px;
 
 	                span {
 	                    margin-left: 1rem;
@@ -100,11 +97,16 @@
 	            }
 
 	            .read-more {
-	                margin: 0;
-					position: absolute;
+	                margin: 0;	
 					bottom: 2rem;
-	                display: inline-block;
-	                border-bottom: 2px solid $green;
+	                display: inline-flex;
+					align-items: center;
+
+					svg {
+						width: 18px;
+						height: auto;
+						margin-left: 5px;
+					}
 	            }
 	        }
 
@@ -129,6 +131,43 @@
 	            }
 	        }
 	    }
+
+		.navigation {
+			text-align: center;
+			margin-top: 30px;
+
+			ul {
+				list-style: none;
+				padding: 0;
+				display: inline-block;
+
+				li {
+					display: inline-block;
+					margin-right: 5px;
+					margin-bottom: 5px;
+
+					&.active a {
+						background-color: #333;
+						color: #fff;
+					}
+
+					a {
+						padding: 5px 10px;
+						background-color: #f7f7f7;
+						border: 1px solid #e5e5e5;
+						text-decoration: none;
+						color: #333;
+						border-radius: 3px;
+						transition: background-color 0.3s;
+
+						&:hover {
+							background-color: #333;
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
 	}
 
 	.no-results,

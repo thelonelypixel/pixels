@@ -1,0 +1,16 @@
+{
+    "name": "acf/dual-text",
+    "title": "Dual Text",
+    "description": "A custom dual-text block.",
+    "style": [ "file:./dual-text.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["accordion", "quote"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "dual-text.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

@@ -1,0 +1,100 @@
+.block__grid {
+	&__intro {
+		margin-bottom: 60px;
+		max-width: 50%;
+	}
+
+	&__grid {
+		display: grid;
+		grid-gap: 30px;
+
+		&.block__grid--one-column {
+			grid-template-columns: 1fr;
+		}
+
+		&.block__grid--two-column, 
+		&.block__grid--three-column, 
+		&.block__grid--four-column {
+			grid-template-columns: 1fr;
+			
+			@include bp(tablet) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		&.block__grid--three-column, 
+		&.block__grid--four-column {
+			@include bp(desktop) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+		
+		&.block__grid--four-column {
+			@include bp(desktop) {
+				grid-template-columns: repeat(4, 1fr);
+			}
+		}
+
+		.grid-item__image {
+			margin-bottom: 20px;
+			display: block;
+		}
+
+		&__item {
+			p {
+				font-size: 1.6rem;
+			}
+		}
+	}
+
+	// LIST STYLE
+	&--style--list {
+		.grid-item {
+			display: flex;
+
+			.grid-item__icon {
+				width: 60px;
+				margin-right: 10px;
+
+				svg {
+					path: var(--color-primary-teal);
+				}
+			}
+		}
+	}
+
+	// BOX STYLE
+	&--style--box {
+		.grid-item {
+			background: var(--color-neutral-300);
+
+			&__icon {
+				padding: 20px 20px 0;
+			}
+
+			&__image {
+				margin: 0;
+			}
+
+			&__content {
+				padding: 10px 20px;
+			}
+		}
+	}
+
+	// ALIGNMENT 
+	&--center {
+
+		.block__grid__intro {
+			margin: 0 auto 40px;
+		}
+
+		@include bp(desktop) {
+			text-align: center
+		}
+
+		.block__grid__grid img {
+			margin: 0 auto 10px;
+		}
+	}
+}

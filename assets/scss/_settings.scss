@@ -1,17 +1,18 @@
 // Global settings
-$global-width:1160px;
-$global-font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$global-width:1400px;
+$global-font-family: 'inter',"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $global-font-size: 1.6rem;
-$text-color:#7A7A7A;
-$global-margin: 2rem;
-$global-padding: 2rem;
+$text-color:#666;
+$global-margin: 3rem;
+$global-padding: 3rem;
 $global-left: 1rem;
 $global-weight-normal: 300;
 $global-weight-bold: 700;
 $image-path: '../../assets/images/';
 
 // Colour Scheme
-$primary: #101827;
+$primary: #1a5ad1;
+$secondary: #121826;
 $green: #01FFC5;
 $light-grey: #f2f2f2;
 $medium-grey: #eaeaea;
@@ -29,17 +30,18 @@ $scale: 1.614;
 
 // Set our base h1 font size then use the golden ratio to calculate the rest
 
-$h1: 4.8rem;
-$h2: 4.2rem;
-$h3: 3.8rem;
-$h4: 3.2rem;
-$h5: 2.8rem;
-$h6: 2.4rem;
+$h1: 4.2rem;
+$h2: 3.4rem;
+$h3: 2.4rem;
+$h4: 2.0rem;
+$h5: 1.6rem;
+$h6: 1.2rem;
 
-$header-font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$header-font-family: 'inter', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $header-line-height:1.2;
 $header-bottom-margin:rem-calc(30);
 $paragraph-line-height:1.6;
+$margin-bottom: 1rem;
 $paragraph-margin-bottom:1.2rem;
 $list-lineheight: $paragraph-line-height;
 $list-margin-bottom: $paragraph-margin-bottom;
@@ -57,6 +59,7 @@ $cite-font-size: rem-calc(13);
 $cite-color: $dark-grey;
 $cite-pseudo-content: '\2014 \0020';
 $abbr-underline: 1px dotted $dark;
+$button-padding: 1.25rem 2rem;
 
 // inputs
 $input-height:50px;

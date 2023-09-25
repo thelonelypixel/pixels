@@ -1,0 +1,16 @@
+{
+    "name": "acf/media-text",
+    "title": "Media Text",
+    "description": "A custom media text block.",
+    "style": [ "file:./media-text.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["media-text", "quote"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "media-text.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

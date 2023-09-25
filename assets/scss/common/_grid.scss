@@ -1,6 +1,7 @@
 // Grid Styles
 .container {
-    width:90%;
+    position: relative;
+    width: 100%;
     max-width:$global-width;
     margin:0 auto;
 
@@ -11,7 +12,7 @@
 }
 
 .container--wide {
-	max-width:$global-width*1.2;
+	max-width:calc($global-width) * 1.2;
 	width: 90%;
     margin:0 auto;
     padding: 0 2rem;
@@ -23,8 +24,8 @@
 }
 
 .container--narrow {
-	max-width:$global-width/1.2;
-	width: 90%;
+	max-width:calc($global-width) / 1.2;
+	width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -35,24 +36,14 @@
 }
 
 .container--thin {
-	max-width:$global-width/1.5;
-	width: 90%;
+	max-width:calc($global-width) / 1.5;
+	width: 100%;
     margin: 0 auto;
     padding: 0 5vw;
 
     @include bp(desktop) {
         padding: 0;
 		width: 100%;
-    }
-}
-
-.container--blog {
-    max-width:$global-width/1.5;
-    margin: 0 auto;
-    padding: 0 5vw;
-
-    @include bp(desktop) {
-        padding: 0;
     }
 }
 
@@ -65,10 +56,10 @@
 }
 
 .row {
+    position: relative;
     display:flex;
     margin:0 auto;
     flex-wrap:wrap;
-    width:90%;
 
     @include bp(desktop) {
         width: 100%;
@@ -128,27 +119,36 @@ ul.row {
 }
 
 .column {
-    padding-left:$global-padding/2;
-    padding-right:$global-padding/2;
     margin:0;
     min-width: 0;
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis:auto;
     width: 100%;
+    padding-left: calc($global-padding);
+    padding-right: calc($global-padding);
+
+    @include bp(tablet) {
+        padding-left: calc($global-padding * 2);
+        padding-right: calc($global-padding * 2);
+    }
+
+    @include bp(desktop) {
+        padding-left: calc($global-padding);
+        padding-right: calc($global-padding);
+    
+    }
 }
 
 
 @for $i from 1 through 12 {
 
     .column-m-#{$i} {
-        flex-basis: 100% / 12 * $i - 2%;
-        max-width: 100% / 12 * $i - 2%;
+        max-width: calc(100% / 12) * $i;
     }
 
     .column-m-#{$i}-nest {
-        flex-basis: 100% / 12 * $i;
-        max-width: 100% / 12 * $i;
+        max-width: calc(100% / 12) * $i;
     }
 
     .column-m-order-#{$i} {
@@ -162,13 +162,12 @@ ul.row {
     @for $i from 1 through 12 {
 
         .column-t-#{$i} {
-            flex-basis: 100% / 12 * $i - 2%;
-            max-width: 100% / 12 * $i - 2%;
+            max-width: calc(100% / 12) * $i - 2%;
         }
 
         .column-t-#{$i}-nest {
-            flex-basis: 100% / 12 * $i;
-            max-width: 100% / 12 * $i;
+            max-width: calc(100% / 12) * $i;
+            padding: 0;
         }
 
         .column-t-order-#{$i} {
@@ -184,13 +183,12 @@ ul.row {
     @for $i from 1 through 12 {
 
         .column-p-#{$i} {
-            flex-basis: 100% / 12 * $i - 2%;
-            max-width: 100% / 12 * $i - 2%;
+            max-width: calc(100% / 12) * $i - 2%;
         }
 
         .column-p-#{$i}-nest {
-            flex-basis: 100% / 12 * $i;
-            max-width: 100% / 12 * $i;
+            max-width: calc(100% / 12) * $i;
+            padding: 0;
         }
 
         .column-p-order-#{$i} {
@@ -206,13 +204,12 @@ ul.row {
     @for $i from 1 through 12 {
 
         .column-d-#{$i} {
-            flex-basis: 100% / 12 * $i - 2%;
-            max-width: 100% / 12 * $i - 2%;
+            max-width: calc(100% / 12) * $i - 2%;
         }
 
         .column-d-#{$i}-nest {
-            flex-basis: 100% / 12 * $i;
-            max-width: 100% / 12 * $i;
+            max-width: calc(100% / 12) * $i;
+            padding: 0;
         }
 
         .column-d-order-#{$i} {

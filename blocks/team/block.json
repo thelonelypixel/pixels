@@ -1,0 +1,16 @@
+{
+    "name": "acf/team",
+    "title": "Team",
+    "description": "A custom team block.",
+    "style": [ "file:./team.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["team", "quote"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "team.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

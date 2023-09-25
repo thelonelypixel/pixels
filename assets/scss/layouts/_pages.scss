@@ -18,8 +18,16 @@ APP STYLES
             text-align: center;
 
             header span {
-                font-size: 8rem;
+                font-size: 2.8rem;
+                font-weight: 700;
+                color: $primary;
             }
+
+            p {
+                margin: 20px 0;
+            }
+
+        
         }
     }
 }

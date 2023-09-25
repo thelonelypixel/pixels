@@ -46,11 +46,8 @@
 
     &__content {
         position: relative;
-        max-width: 800px;
         margin: 0 auto;
-        text-align: center;
         z-index: 2;
-        padding: 1rem;
 
         @include bp(desktop) {
             padding: 0;
@@ -59,13 +56,14 @@
         h1 {
             will-change: transform;
             @include animate(1s, 0, fadeInUp);
+            color: $lightest;
         }
 
         p {
-            font-size: 2.4rem;
-            color: $primary;
+            font-size: 2rem;
+            color: $lightest;
             font-weight: 400;
-            margin-top: 1rem;
+            margin: 20px 0;
             will-change: opacity;
             @include animate(1s, 600ms, fadeIn);
         }
@@ -89,24 +87,6 @@
             height: 100%;
             object-fit: cover;
             object-position: left;
-        }
-
-        .overlay {
-            .home & {
-                display: none;
-            }
-        }
-    }
-
-    &--light {
-        a,
-        h1,
-        p {
-            color: $lightest;
-        }
-
-        .button {
-            color: $primary;
         }
     }
 }

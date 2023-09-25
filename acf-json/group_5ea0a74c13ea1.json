@@ -6,6 +6,7 @@
             "key": "field_5fcf84ef86408",
             "label": "Hero",
             "name": "",
+            "aria-label": "",
             "type": "accordion",
             "instructions": "",
             "required": 0,
@@ -23,6 +24,7 @@
             "key": "field_5fcf84f786409",
             "label": "Options",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -39,6 +41,7 @@
             "key": "field_5ea0a752c9343",
             "label": "Hero Type",
             "name": "hero_type",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -62,47 +65,10 @@
             "placeholder": ""
         },
         {
-            "key": "field_5ea361ee6e6fd",
-            "label": "Add Margin",
-            "name": "add_margin",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33.333",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5ea0a7cec9347",
-            "label": "Text Colour",
-            "name": "hero_text_color",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33.333",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "Light",
-            "ui_off_text": "Dark"
-        },
-        {
             "key": "field_5fcf85008640a",
             "label": "Content",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -119,6 +85,7 @@
             "key": "field_5ea0a799c9346",
             "label": "Video File",
             "name": "hero_video_file",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -146,6 +113,7 @@
             "key": "field_5ecfb169055b0",
             "label": "Image",
             "name": "hero_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -175,29 +143,11 @@
             "mime_types": ""
         },
         {
-            "key": "field_5ea0a81ac9348",
-            "label": "Heading",
-            "name": "hero_heading",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5ea0a839c9349",
             "label": "Content",
             "name": "hero_content",
-            "type": "text",
+            "aria-label": "",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -207,10 +157,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -222,13 +172,14 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 10,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1607435569
+    "show_in_rest": 0,
+    "modified": 1695508933
 }

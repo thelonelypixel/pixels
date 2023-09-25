@@ -2,14 +2,16 @@
 
 .button {
     display: inline-block;
-    margin: 2rem 0;
+    margin-top: 0;
+    margin-bottom: $margin-bottom;
     background: $primary;
     color: $lightest;
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: 1px;
-    padding: 1rem 2rem;
-	border-radius: 4px;
+    padding: $button-padding;
+	border-radius: 6px;
+    font-size: 14px;
     font-family: $header-font-family;
     border: none;
     transition: 600ms $cubic;

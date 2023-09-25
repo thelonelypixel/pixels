@@ -11,7 +11,7 @@ dl {
 
 // List items
 li {
-    font-size: 2rem;
+	margin-bottom: 5px;
 }
 
 // Unordered lists
@@ -36,8 +36,8 @@ ol {
 			left: 1rem;
 			display: inline-block;
 			content: counter(counter)".";
-			font-size: 2rem;
 			color: $primary;
+			font-size: 16px;
 			font-weight: bold;
 		}
 	}

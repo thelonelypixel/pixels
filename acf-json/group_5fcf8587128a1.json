@@ -6,6 +6,7 @@
             "key": "field_5fcf8b854310f",
             "label": "Buttons",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_5fcf85bec7c73",
             "label": "Buttons",
             "name": "buttons",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -38,15 +40,35 @@
             "button_label": "Add Button",
             "sub_fields": [
                 {
-                    "key": "field_5fcf85d3c7c74",
-                    "label": "Button Type",
-                    "name": "button_type",
-                    "type": "select",
+                    "key": "field_65032fae2683e",
+                    "label": "Button Group",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "accordion",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0,
+                    "parent_repeater": "field_5fcf85bec7c73"
+                },
+                {
+                    "key": "field_5fcf85d3c7c74",
+                    "label": "Button Type",
+                    "name": "button_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -57,36 +79,40 @@
                         "download": "Download"
                     },
                     "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
                     "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 1,
+                    "ajax": 1,
+                    "placeholder": "",
+                    "parent_repeater": "field_5fcf85bec7c73"
                 },
                 {
                     "key": "field_5fcf8619c7c75",
                     "label": "Button Text",
                     "name": "button_text",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "parent_repeater": "field_5fcf85bec7c73"
                 },
                 {
                     "key": "field_5fcf861dc7c76",
                     "label": "Download",
                     "name": "download",
+                    "aria-label": "",
                     "type": "file",
                     "instructions": "",
                     "required": 0,
@@ -100,7 +126,7 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -108,12 +134,14 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5fcf85bec7c73"
                 },
                 {
                     "key": "field_5fcf8635c7c77",
                     "label": "URL",
                     "name": "url",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -127,39 +155,52 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "parent_repeater": "field_5fcf85bec7c73"
                 },
                 {
                     "key": "field_5fcf864cc7c78",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "page_link",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5fcf85d3c7c74",
+                                "operator": "==",
+                                "value": "internal"
+                            }
+                        ]
+                    ],
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "post_type": "",
+                    "post_status": "",
                     "taxonomy": "",
-                    "allow_null": 0,
                     "allow_archives": 1,
-                    "multiple": 0
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "parent_repeater": "field_5fcf85bec7c73"
                 },
                 {
                     "key": "field_5fcf86a3c7c79",
                     "label": "ID",
                     "name": "id",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -173,17 +214,19 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "parent_repeater": "field_5fcf85bec7c73"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -195,13 +238,14 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 30,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1607437199
+    "show_in_rest": 0,
+    "modified": 1695508111
 }
