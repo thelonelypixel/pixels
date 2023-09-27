@@ -34,10 +34,10 @@
                 "id": ""
             },
             "choices": {
-                "block__bg block__bg--white": "White",
+                "block__bg--white": "White",
                 "block__bg block__bg--grey": "Grey"
             },
-            "default_value": "block__bg block__bg--white",
+            "default_value": "block__bg--white",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -64,5 +64,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695827915
+    "modified": 1695838439
 }

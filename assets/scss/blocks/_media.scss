@@ -1,5 +1,10 @@
 .block__media {
 
+    .media-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
+
     .video-poster {
         position: absolute;
         top: 0;
@@ -23,6 +28,9 @@
     }
 
     .media-poster {
+        position: absolute;
+        width: 100%;
+        height: 100%;
    
         img {
             width: 100%;
@@ -33,7 +41,7 @@
 
         .play-video-btn {
             opacity: 1;
-            
+
             &.hidden {
                 opacity: 0;
             }

@@ -43,54 +43,57 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 
 			<?php if( $field['layout'] == "block__media__default") : ?>
 
-				<div class="column column-m-12-nest relative">
+				<div class="column <?php echo $field['container'] ? 'column-m-12' : 'column-m-12-nest'; ?>">
 
-				<?php if( $field['media_type'] == 'Video' ): ?>
+				<div class="media-wrapper">
 
-					<?php if( $field['add_poster'] ): ?>
-						<div class="media-poster">
-							<!-- Alt text for the poster image -->
-							<img src="<?php echo wp_get_attachment_image_src($field['poster'], "full")[0]; ?>" alt="Poster for <?php echo esc_attr($field['video']); ?>" class="video-poster">
-							
-							<!-- Button to trigger video playback, uses ARIA for screen readers -->
-							<button aria-label="Play video" class="play-video-btn">
-								<svg width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-									<circle cx="93.84" cy="93.5" r="93" fill="black"/>
-									<path d="M138.48 94.4302L72.915 132.284L72.915 56.5762L138.48 94.4302Z" fill="white"/>
-								</svg>
-							</button>
-						</div>
-					<?php endif; ?>
+					<?php if( $field['media_type'] == 'Video' ): ?>
 
-					<?php 
-					$embed_url = ''; // Initialize variable
+						<?php if( $field['add_poster'] ): ?>
+							<div class="media-poster">
+								<!-- Alt text for the poster image -->
+								<img src="<?php echo wp_get_attachment_image_src($field['poster'], "full")[0]; ?>" alt="Poster for <?php echo esc_attr($field['video']); ?>" class="video-poster">
+								
+								<!-- Button to trigger video playback, uses ARIA for screen readers -->
+								<button aria-label="Play video" class="play-video-btn">
+									<svg width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+										<circle cx="93.84" cy="93.5" r="93" fill="black"/>
+										<path d="M138.48 94.4302L72.915 132.284L72.915 56.5762L138.48 94.4302Z" fill="white"/>
+									</svg>
+								</button>
+							</div>
+						<?php endif; ?>
 
-					// Determine embed URL based on source
-					if (isset($field['embed_source'])) {
-						switch ($field['embed_source']) {
-							case 'YouTube':
-								$embed_url = 'https://www.youtube.com/embed/' . $field['video'] . '?enablejsapi=1';
-								break;
-							case 'Vimeo':
-								$embed_url = 'https://player.vimeo.com/video/' . $field['video'] . '?api=1&autoplay=1';
-								break;
+						<?php 
+						$embed_url = ''; // Initialize variable
+
+						// Determine embed URL based on source
+						if (isset($field['embed_source'])) {
+							switch ($field['embed_source']) {
+								case 'YouTube':
+									$embed_url = 'https://www.youtube.com/embed/' . $field['video'] . '?enablejsapi=1';
+									break;
+								case 'Vimeo':
+									$embed_url = 'https://player.vimeo.com/video/' . $field['video'] . '?api=1&autoplay=1';
+									break;
+							}
 						}
-					}
 
-					// Output iframe or video tag if the source is set
-					if (!empty($embed_url) && isset($field['video_source']) && $field['video_source'] == 'Embed') {
-						// Add title attribute for iframe
-						echo '<iframe class="video" src="' . esc_url($embed_url) . '" allow="autoplay" title="Embedded Video"></iframe>';
-					} elseif (isset($field['video_source']) && $field['video_source'] !== 'Embed') {
-						// Add controls attribute for video element for accessibility
-						echo '<video class="video" src="' . esc_attr($field['video']) . '" autoplay loop playsinline controls></video>';
-					} ?>
+						// Output iframe or video tag if the source is set
+						if (!empty($embed_url) && isset($field['video_source']) && $field['video_source'] == 'Embed') {
+							// Add title attribute for iframe
+							echo '<iframe class="video" src="' . esc_url($embed_url) . '" allow="autoplay" title="Embedded Video"></iframe>';
+						} elseif (isset($field['video_source']) && $field['video_source'] !== 'Embed') {
+							// Add controls attribute for video element for accessibility
+							echo '<video class="video" src="' . esc_attr($field['video']) . '" autoplay loop playsinline controls></video>';
+						} ?>
 
-					<?php else: ?>
-					<!-- Alt text for the image -->
-					<?php echo wp_get_attachment_image($field['image'], "full", false, array('alt' => 'Description for the image')); ?>
-					<?php endif; ?>
+						<?php else: ?>
+						<!-- Alt text for the image -->
+						<?php echo wp_get_attachment_image($field['image'], "full", false, array('alt' => 'Description for the image')); ?>
+						<?php endif; ?>
 
+					</div>
 
 				</div>
 
@@ -108,7 +111,7 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 							<div class="swiper">
 
 								<!-- Additional required wrapper -->
-								<ul  class="swiper-wrapper">
+								<ul class="swiper-wrapper">
 						
 									<?php while( have_rows('carousel') ) : the_row();
 									
