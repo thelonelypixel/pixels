@@ -12,11 +12,13 @@
 
 	<body <?php body_class(); ?>>
 
+	<a href="#scroll-to" class="skip-to-content">Skip to Content</a>
+
+
 	<?php 
 		$sticky = get_field('sticky', 'options');
 		$container = get_field('container', 'options');
 	?>	
-
 
 	<header 
 		x-data="{ isNavOpen: false, isSticky: <?php echo $sticky ? 'false' : 'true'; ?> }" 

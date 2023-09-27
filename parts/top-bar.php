@@ -32,6 +32,7 @@
 					<!-- Hamburger button -->
 					<button 
 						@click="isNavOpen = !isNavOpen; $dispatch('nav-toggle', { isOpen: isNavOpen })" 
+						aria-label="Toggle navigation menu" 
 						class="hamburger">
 						<span :class="{'offcanvas-active': isNavOpen}"></span>
 					</button>

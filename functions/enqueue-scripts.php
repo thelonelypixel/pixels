@@ -45,9 +45,6 @@ function site_scripts() {
     wp_enqueue_script('alpineplugins', 'https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js', array(), '3.0.0', true);
     wp_enqueue_script('alpinejs', 'https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js', array(), '3.0.0', true);
 
-    // Load YouTube iFrame API
-    wp_enqueue_script('youtube-iframe-api-async', 'https://www.youtube.com/iframe_api', array(), null, true);
-
     // Adding scripts file in the footer
     wp_enqueue_script( 'site-js', get_template_directory_uri() . '/dist/js/main.min.js', array( 'jquery' ), '', true );
 
@@ -61,6 +58,40 @@ function site_scripts() {
 }
 add_action('wp_enqueue_scripts', 'site_scripts', 999);
 
+// Load the YouTube / Vimeo API asynchronously and only if the blocks are present on the page
+function custom_enqueue_video_scripts() {
+
+    // Get the content of the current post.
+    $post_content = get_post(get_queried_object_id())->post_content;
+
+    // Define ACF block names. Replace 'acf/your-block-name' with your block's name.
+    $acf_blocks = array(
+        'acf/media',
+        'acf/media-text',
+        // Add more block names as needed.
+    );
+
+    $enqueue_scripts = false;
+
+    // Loop through each ACF block name to check if it's present in the post content.
+    foreach ( $acf_blocks as $block ) {
+        if ( strpos( $post_content, '<!-- wp:' . $block ) !== false ) {
+            $enqueue_scripts = true;
+            break;
+        }
+    }
+
+    // If any of the ACF blocks are found, enqueue the scripts.
+    if ( $enqueue_scripts ) {
+        // Load YouTube iFrame API
+        wp_enqueue_script('youtube-iframe-api-async', 'https://www.youtube.com/iframe_api', array(), null, true);
+
+        // Load Vimeo iFrame API
+        wp_enqueue_script('vimeo-iframe-api-async', 'https://player.vimeo.com/api/player.js', array(), null, true);
+    }
+}
+
+add_action( 'wp_enqueue_scripts', 'custom_enqueue_video_scripts' );
 
 // ACF Styles
 function my_admin_enqueue_scripts() {

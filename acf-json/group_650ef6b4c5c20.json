@@ -197,12 +197,72 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_6512bb10b61a1",
+            "label": "Video Source",
+            "name": "video_source",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Embed": "Embed",
+                "URL": "URL"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 1,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6512a671bfc1d",
+            "label": "Embed Source",
+            "name": "embed_source",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6512bb10b61a1",
+                        "operator": "==",
+                        "value": "Embed"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "YouTube": "YouTube",
+                "Vimeo": "Vimeo"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 1,
+            "placeholder": ""
+        },
+        {
             "key": "field_650ef7c44518c",
             "label": "Video",
             "name": "video",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "If using Embed add the video ID here from YouTube or Vimeo, if using URL add the full url to the MP4 file here.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -393,6 +453,29 @@
                     "parent_repeater": "field_65118095b18d2"
                 },
                 {
+                    "key": "field_6512a69bbfc1e",
+                    "label": "Video Source",
+                    "name": "video_source",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "field_6512a671bfc1d"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0,
+                    "parent_repeater": "field_65118095b18d2"
+                },
+                {
                     "key": "field_6511816ab18d9",
                     "label": "Video",
                     "name": "video",
@@ -512,5 +595,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695678265
+    "modified": 1695726479
 }

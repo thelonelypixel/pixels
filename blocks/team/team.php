@@ -9,88 +9,79 @@ $field = [
 	// General Options
     'background' => get_field('background'),
 	'show_block' => get_field('show_block'),
-
 	// Content
-
 ];
 
-?>
+if ($field['show_block']): ?>
 
-<?php if( $field['show_block'] ) : ?>
+<section class="block block__team" x-data="{ openModal: function(img, name, position, bio) { this.modalImage = img; this.modalName = name; this.modalPosition = position; this.modalBio = bio; this.isModalOpen = true; document.body.classList.add('no-scroll'); } , isModalOpen: false, modalImage: '', modalName: '', modalPosition: '', modalBio: '' }">
 
-<section class="block block__team" x-data="{ isModalOpen: false, modalImage: '', modalName: '', modalPosition: '', modalBio: '' }">
-
-	<!-- Content -->
 	<div class="container">
 
 		<div class="row">
 			<div class="block__team_intro column column-m-12 column-t-7">
-        		<?php the_field('intro'); ?>
-      		</div>
-    	</div>
+				<?php the_field('intro'); ?>
+			</div>
+		</div>
     	
 		<div class="row">
 
-      		<div class="column column-m-12 column-t-12">
+			<div class="column column-m-12 column-t-12">
 
-        		<?php if ( have_rows('team') ) : ?>
+				<?php if ( have_rows('team') ) : ?>
 
-          			<div class="team-grid">
+					<div class="team-grid">
 						
-            			<?php while( have_rows('team') ) : the_row();
-              			$field = [
-                		'image' => get_sub_field('image'),
-                		'name' => get_sub_field('name'),
-                		'size' => 'medium', // 'thumbnail', 'medium', 'large', 'full
-                		'position' => get_sub_field('position'),
-                		'bio' => get_sub_field('bio'),
-              			]
-            			?>
-            			
+						<?php while( have_rows('team') ) : the_row();
+							$field = [
+								'image' => get_sub_field('image'),
+								'name' => get_sub_field('name'),
+								'size' => 'medium',
+								'position' => get_sub_field('position'),
+								'bio' => get_sub_field('bio'),
+							]
+						?>
+							
 							<div class="team-grid__item">
 
-              					<div class="team-grid__item__image">
-                					<?php echo wp_get_attachment_image($field['image'], $field['size']); ?>
-             					</div>
-              					
+								<div class="team-grid__item__image">
+									<img src="<?php echo esc_url(wp_get_attachment_image_src($field['image'], $field['size'])[0]); ?>" alt="<?php echo esc_attr($field['name']); ?>">
+								</div>
+								
 								<div class="team-grid__item__content">
-                					<h3><?php echo $field['name']; ?></h3>
-                					<h4><?php echo $field['position']; ?></h4>
+									<h3><?php echo esc_html($field['name']); ?></h3>
+									<h4><?php echo esc_html($field['position']); ?></h4>
 									<a href="#" 
-										x-on:click.prevent="
-										modalImage = '<?php echo wp_get_attachment_image_src($field['image'], $field['size'])[0]; ?>'; 
-										modalName = '<?php echo $field['name']; ?>';
-										modalPosition = '<?php echo $field['position']; ?>'; 
-										modalBio = '<?php echo $field['bio']; ?>'; 
-										isModalOpen = true;
-										document.body.classList.add('no-scroll');"
+										x-on:click.prevent="openModal('<?php echo esc_url(wp_get_attachment_image_src($field['image'], $field['size'])[0]); ?>', '<?php echo esc_js($field['name']); ?>', '<?php echo esc_js($field['position']); ?>', '<?php echo esc_js($field['bio']); ?>')"
+										aria-label="Read Bio of <?php echo esc_attr($field['name']); ?>"
 										class="read-bio">
 										Read Bio
 									</a>
-              					</div>
+								</div>
 
-            				</div>
+							</div>
 
-           				<?php endwhile; ?>
+						<?php endwhile; ?>
 
-          			</div>
+					</div>
 
-        		<?php endif; ?>
+				<?php endif; ?>
 
-      		</div>
+			</div>
 
-    	</div>
+		</div>
 
 	</div>
 
 	<!-- Modal -->
-	<div x-show="isModalOpen" x-on:click="isModalOpen = false; document.body.classList.remove('no-scroll'); console.log('Modal Closed from overlay, no-scroll removed');" class="modal">	
-		<div class="modal__content" x-on:click="isModalOpen = false">
-			<span x-on:click.stop="isModalOpen = false; document.body.classList.remove('no-scroll');" class="modal__close">
+	<div x-show="isModalOpen" x-on:keydown.escape.window="isModalOpen = false; document.body.classList.remove('no-scroll');" class="modal">
+		<div class="modal__content" x-on:click="isModalOpen = false" role="dialog" aria-labelledby="modal-title">
+			
+			<button x-on:click.stop="isModalOpen = false; document.body.classList.remove('no-scroll');" class="modal__close" aria-label="Close modal">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 				</svg>
-			</span>
+			</button>
 			
 			<div class="modal__body" x-on:click.stop>
 				<div class="row">
@@ -98,12 +89,13 @@ $field = [
 						<img :src="modalImage" :alt="modalName">
 					</div>
 					<div class="modal__text column column-m-12 column-t-8-nest">
-						<h3 x-text="modalName"></h3>
+						<h3 x-text="modalName" id="modal-title"></h3>
 						<h4 x-text="modalPosition"></h4>
 						<p x-text="modalBio"></p>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 

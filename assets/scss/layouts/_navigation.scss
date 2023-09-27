@@ -152,6 +152,7 @@ nav.navbar {
 				a {
 					padding: $button-padding;
 					background: $primary;
+					color: $lightest;
 					border-radius: 100px;
 
 					.header-layout--hamburger & {

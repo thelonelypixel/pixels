@@ -5,11 +5,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-bottom: $block-margin-bottom-small;
-
-    @include bp(desktop) {
-        margin-bottom: $block-margin-bottom;
-    }
+    background: $darkest;
 
     &--simple {
         height: 400px;

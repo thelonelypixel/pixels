@@ -52,14 +52,6 @@ p {
 a {
     line-height: inherit;
 
-    &:active {
-        color: $darkest;
-    }
-
-    &:focus {
-        color: $darkest;
-    }
-
     &:hover {
         color: darken($darkest, 10%);
     }

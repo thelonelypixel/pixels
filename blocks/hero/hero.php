@@ -52,4 +52,6 @@
 
 </section>
 
+<div id="scroll-to"></div>
+
 <?php endif; ?>

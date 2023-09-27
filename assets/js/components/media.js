@@ -7,60 +7,94 @@ import 'swiper/css/bundle';
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    const playerFrames = document.querySelectorAll('.video'); // Assuming .video is the class of your iframe elements.
+    // YouTube and Vimeo video players
+    const playerFrames = document.querySelectorAll('.video');
     const posters = document.querySelectorAll('.video-poster');
-    const svgPlayButtonWrappers = document.querySelectorAll('.media-poster svg');
-    
-    if (playerFrames.length === 0 || posters.length === 0 || svgPlayButtonWrappers.length === 0) return;
-    
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    
+    const playButtons = document.querySelectorAll('.play-video-btn'); // targeting the play button instead of the svg
+
+    if (!playerFrames.length || !posters.length || !playButtons.length) return;
+
+    // Initialize YouTube API
+    function loadYouTubeAPI() {
+        // Check if the API script is already added
+        if(document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+            return; // Exit if the script is already added
+        }
+
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+
     const players = [];
-    
+
     window.onYouTubeIframeAPIReady = function() {
         playerFrames.forEach((frame, index) => {
-            players[index] = new YT.Player(frame, {
-                events: {
-                    'onStateChange': function(event) {
-                        onPlayerStateChange(event, index);
-                    }
-                }
-            });
+            if (frame.src.includes('youtube')) {
+                players[index] = {
+                    type: 'youtube',
+                    player: new YT.Player(frame, {
+                        events: {
+                            'onStateChange': function(event) {
+                                onYouTubePlayerStateChange(event, index);
+                            }
+                        }
+                    })
+                };
+            } else if (frame.src.includes('vimeo')) {
+                players[index] = {
+                    type: 'vimeo',
+                    player: new Vimeo.Player(frame)
+                };
+                players[index].player.on('play', function() {
+                    hideElements(index);
+                });
+                players[index].player.on('pause', function() {
+                    showElements(index);
+                });
+            }
         });
-    }
-    
-    function onPlayerStateChange(event, index) {
-        const poster = posters[index];
-        const svgPlayButtonWrapper = svgPlayButtonWrappers[index];
-    
-        switch(event.data) {
+    };
+
+    function onYouTubePlayerStateChange(event, index) {
+        switch (event.data) {
             case YT.PlayerState.PAUSED:
-                poster.classList.remove('hidden');
-                svgPlayButtonWrapper.classList.remove('hidden');
+                showElements(index);
                 break;
             case YT.PlayerState.PLAYING:
-                poster.classList.add('hidden');
-                svgPlayButtonWrapper.classList.add('hidden');
+                hideElements(index);
                 break;
         }
     }
-    
-    svgPlayButtonWrappers.forEach((svg, index) => {
-        svg.addEventListener('click', function() {
-            const poster = posters[index];
-    
-            poster.classList.add('hidden');
-            svg.classList.add('hidden'); 
-    
-            if (players[index] && players[index].playVideo) {
-                players[index].playVideo();
-            }
-        });
-    });    
 
+    function hideElements(index) {
+        posters[index].classList.add('hidden');
+        playButtons[index].classList.add('hidden'); // hiding the play button
+    }
+
+    function showElements(index) {
+        posters[index].classList.remove('hidden');
+        playButtons[index].classList.remove('hidden'); // showing the play button
+    }
+
+    playButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            const playerType = players[index].type;
+
+            if (playerType === 'youtube') {
+                players[index].player.playVideo();
+            } else if (playerType === 'vimeo') {
+                players[index].player.play();
+            }
+
+            hideElements(index); // Hide elements when the video is played
+        });
+    });
+
+    loadYouTubeAPI();
+
+    
     // init Swiper:
     const swiper = new Swiper('.swiper', {
         // Optional parameters
@@ -72,6 +106,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // If we need pagination
         pagination: {
           el: '.swiper-pagination',
+        },
+
+        // Accessibility
+        a11y: {
+            prevSlideMessage: 'Previous slide',
+            nextSlideMessage: 'Next slide',
         },
       
         // Navigation arrows

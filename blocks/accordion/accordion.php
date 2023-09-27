@@ -40,16 +40,18 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 								<div id="accordion-heading-<?php echo $counter; ?>">
 									<button
 										x-on:click="expanded = !expanded; $dispatch('toggle-accordion', { id: id })"
-										:aria-expanded="expanded.toString()" class="[ bold ]"
+										:aria-expanded="expanded.toString()" 
+										aria-controls="accordion-content-<?php echo $counter; ?>"
+										class="[ bold ]"
 									>
 										<span><?php echo $heading; ?></span>
-										<span x-show="expanded" aria-hidden="true" class="[ bold ]">&minus;</span>
-										<span x-show="!expanded" aria-hidden="true" class="[ bold ]">&plus;</span>
+										<span x-show="expanded" aria-hidden="true" class="[ bold ]">&ndash;</span>
+										<span x-show="!expanded" aria-hidden="true" class="[ bold ]">&#43;</span>
 									</button>
 								</div>
 
 								<div x-show="expanded" x-collapse>
-									<div class="accordion-content" id="accordion-content-<?php echo $counter; ?>" tabindex="0">
+									<div class="accordion-content" id="accordion-content-<?php echo $counter; ?>">
 										<?php echo $content; ?>
 									</div>
 								</div>
@@ -63,4 +65,4 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 	</div>
 </section>
 
-<?php endif; ?>	
+<?php endif; ?>

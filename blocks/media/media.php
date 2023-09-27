@@ -16,6 +16,8 @@ $field = [
 
 	// Content
     'media_type' => get_field('media_type'),
+	'video_source' => get_field('video_source'),
+	'embed_source' => get_field('embed_source'),
 	'video' => get_field('video'),
 	'poster' => get_field('poster'),
 	'image' => get_field('image'),
@@ -31,7 +33,7 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 
 <?php if( $field['show_block'] ) : ?>
 
-<section <?php echo $anchor; ?> class="block block__media <?php echo $field['background']; ?>">
+<section <?php echo $anchor; ?> class="block block__media <?php echo $field['background']; ?> <?php if( !$field['container'] ) : ?>no-margin<?php endif; ?>">
 
 	<?php if( $field['container'] ) : ?>
 		<div class="container">
@@ -39,36 +41,64 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 
 		<div class="row row--justified">
 
-			<div class="column column-m-12 column-t-12 relative">
+			<?php if( $field['layout'] == "block__media__default") : ?>
 
-				<?php if( $field['layout'] == "block__media__default") : ?>
+				<div class="column column-m-12-nest relative">
 
-					<div class="media-wrapper">
+				<?php if( $field['media_type'] == 'Video' ): ?>
 
-						<?php if( $field['media_type'] == 'Video' ): ?>
-							<?php if( $field['add_poster'] ): ?>
-								<div class="media-poster">
-									<img src="<?php echo wp_get_attachment_image_src($field['poster'], "full")[0]; ?>" class="video-poster">
-									<svg width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<circle cx="93.84" cy="93.5" r="93" fill="black"/>
-										<path d="M138.48 94.4302L72.915 132.284L72.915 56.5762L138.48 94.4302Z" fill="white"/>
-									</svg>
-								</div>
-							<?php endif; ?>
+					<?php if( $field['add_poster'] ): ?>
+						<div class="media-poster">
+							<!-- Alt text for the poster image -->
+							<img src="<?php echo wp_get_attachment_image_src($field['poster'], "full")[0]; ?>" alt="Poster for <?php echo esc_attr($field['video']); ?>" class="video-poster">
+							
+							<!-- Button to trigger video playback, uses ARIA for screen readers -->
+							<button aria-label="Play video" class="play-video-btn">
+								<svg width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+									<circle cx="93.84" cy="93.5" r="93" fill="black"/>
+									<path d="M138.48 94.4302L72.915 132.284L72.915 56.5762L138.48 94.4302Z" fill="white"/>
+								</svg>
+							</button>
+						</div>
+					<?php endif; ?>
 
-							<iframe class="video" src="https://www.youtube.com/embed/<?php echo $field['video']; ?>?enablejsapi=1"></iframe>
+					<?php 
+					$embed_url = ''; // Initialize variable
 
-						<?php else: ?>
+					// Determine embed URL based on source
+					if (isset($field['embed_source'])) {
+						switch ($field['embed_source']) {
+							case 'YouTube':
+								$embed_url = 'https://www.youtube.com/embed/' . $field['video'] . '?enablejsapi=1';
+								break;
+							case 'Vimeo':
+								$embed_url = 'https://player.vimeo.com/video/' . $field['video'] . '?api=1&autoplay=1';
+								break;
+						}
+					}
 
-							<?php echo wp_get_attachment_image($field['image'], "full"); ?>
+					// Output iframe or video tag if the source is set
+					if (!empty($embed_url) && isset($field['video_source']) && $field['video_source'] == 'Embed') {
+						// Add title attribute for iframe
+						echo '<iframe class="video" src="' . esc_url($embed_url) . '" allow="autoplay" title="Embedded Video"></iframe>';
+					} elseif (isset($field['video_source']) && $field['video_source'] !== 'Embed') {
+						// Add controls attribute for video element for accessibility
+						echo '<video class="video" src="' . esc_attr($field['video']) . '" autoplay loop playsinline controls></video>';
+					} ?>
 
-						<?php endif; ?>
+					<?php else: ?>
+					<!-- Alt text for the image -->
+					<?php echo wp_get_attachment_image($field['image'], "full", false, array('alt' => 'Description for the image')); ?>
+					<?php endif; ?>
 
-					</div>
 
-				<?php endif; ?>
+				</div>
 
-				<?php if( $field['layout'] == "block__media__carousel" ): ?>
+			<?php endif; ?>
+
+			<?php if( $field['layout'] == "block__media__carousel" ): ?>
+
+				<div class="column column-m-12 relative">
 
 					<?php if ( have_rows('carousel') ) : ?>
 						
@@ -78,7 +108,7 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 							<div class="swiper">
 
 								<!-- Additional required wrapper -->
-								<div class="swiper-wrapper">
+								<ul  class="swiper-wrapper">
 						
 									<?php while( have_rows('carousel') ) : the_row();
 									
@@ -93,7 +123,7 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 									?>
 
 										<!-- Slides -->
-										<div class="swiper-slide">
+										<li class="swiper-slide">
 								
 											<?php if( $carouselField['media_type'] == 'Video' ): ?>
 												<?php if( $carouselField['add_poster'] ): ?>
@@ -106,7 +136,7 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 													</div>
 												<?php endif; ?>
 
-												<iframe class="video" src="https://www.youtube.com/embed/<?php echo $carouselField['video']; ?>?enablejsapi=1"></iframe>
+												<iframe class="video" src="https://player.vimeo.com/video/<?php echo $carouselField['video']; ?>?enablejsapi=1"></iframe>
 
 											<?php else: ?>
 
@@ -114,11 +144,11 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 
 											<?php endif; ?>
 
-										</div>
+											</li>
 									
 									<?php endwhile; ?>
 
-								</div>
+								</ul>
 
 								<!-- If we need pagination -->
 								<!-- <div class="swiper-pagination"></div> -->
@@ -137,9 +167,13 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 					
 					<?php endif; ?>
 
-				<?php endif; ?>
+				</div>
 
-				<?php if( $field['layout'] == "block__media__grid" ): ?>
+			<?php endif; ?>
+
+			<?php if( $field['layout'] == "block__media__grid" ): ?>
+
+				<div class="column column-m-12 relative">
 
 					<?php if( $field['images'] ): ?>
 
@@ -161,9 +195,9 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 						
 					<?php endif; ?>
 
-				<?php endif; ?>
+				</div>
 
-			</div>
+			<?php endif; ?>
 
 		</div>
 
