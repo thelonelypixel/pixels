@@ -1,7 +1,7 @@
 .block__team {
 
     .block__team_intro {
-        margin-bottom: 40px;
+        margin-bottom: $margin-bottom;
     }
 
     .modal__content {
@@ -20,12 +20,16 @@
 
         .modal__body {
             max-width: 900px;
+            width: 90%;
             padding: 40px;
             background: $lightest;
             @include animate(1s, 0, fadeInDown);  
             
             .modal__text {
-                padding: 0 4rem;
+                padding: 3rem 0;
+                @include bp(desktop) {
+                    padding: 0 4rem;
+                }
             }
         }
 

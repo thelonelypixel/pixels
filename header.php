@@ -17,7 +17,17 @@
 		$container = get_field('container', 'options');
 	?>	
 
-	<header x-data="{ isNavOpen: false }" @nav-toggle.window="isNavOpen = $event.detail.isOpen" :class="{ 'offcanvas-open': isNavOpen }" class="header <?php if( $sticky ): ?>header-sticky<?php endif; ?>" role="banner">
+
+	<header 
+		x-data="{ isNavOpen: false, isSticky: <?php echo $sticky ? 'false' : 'true'; ?> }" 
+		@nav-toggle.window="isNavOpen = $event.detail.isOpen" 
+		:class="{ 'offcanvas-open': isNavOpen, 'header-sticky': isSticky }" 
+		class="header" 
+		role="banner" 
+		x-ref="header" 
+		x-init="window.addEventListener('scroll', () => { isSticky = window.scrollY > $refs.header.offsetHeight })"
+	>
+
 		<?php 
 			echo $container ? '<div class="container">' : '';
 			get_template_part( 'parts/top', 'bar' );

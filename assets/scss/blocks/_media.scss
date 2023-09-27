@@ -10,6 +10,8 @@
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
             transition: opacity 0.5s; /* Adjust 0.5s to your desired fade duration */
             opacity: 1;
             aspect-ratio: 16/9; // Match the video
@@ -48,6 +50,48 @@
                     fill: $lightest;
                 }
             }
+        }
+    }
+
+    .media-grid {
+        display: grid;
+        gap: 30px;
+
+        &--layout-1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        &--layout-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &--layout-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        &--layout-4 {
+            grid-template-columns: repeat(2, 2fr);
+        }
+
+        &--layout-5 {
+            grid-template-columns: repeat(3, 2fr);
+        }
+
+        &__item {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .swiper {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+
+        img {
+            width: 100%;
         }
     }
 }

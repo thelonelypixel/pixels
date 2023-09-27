@@ -16,19 +16,11 @@ html {
 	display: block !important;
 	box-sizing: border-box;
 	background: $light-grey;
-	font-size: 50%;
+	font-size: 62.5%;
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-
-	@include bp(tablet) {
-		font-size: 57.25%;
-	}
-
-	@include bp(desktop) {
-		font-size: 62.5%;
-	}
 }
 
 body {
@@ -52,7 +44,7 @@ body {
 	right: 0;
 	display: flex;
 	align-items: center;
-	background: var(--color-neutral-300);
+	background: $light-grey;
 	transition: all 600ms 0s $cubic;
 	z-index: 100;
 }

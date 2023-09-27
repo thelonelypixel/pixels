@@ -5,7 +5,18 @@
  * @param array $block The block settings and attributes.
  */
 
+$field = [
+	// General Options
+    'background' => get_field('background'),
+	'show_block' => get_field('show_block'),
+
+	// Content
+
+];
+
 ?>
+
+<?php if( $field['show_block'] ) : ?>
 
 <section class="block block__team" x-data="{ isModalOpen: false, modalImage: '', modalName: '', modalPosition: '', modalBio: '' }">
 
@@ -83,10 +94,10 @@
 			
 			<div class="modal__body" x-on:click.stop>
 				<div class="row">
-					<div class="modal__image column-t-4-nest">
+					<div class="modal__image column column-m-12 column-t-4-nest">
 						<img :src="modalImage" :alt="modalName">
 					</div>
-					<div class="modal__text column-t-8-nest">
+					<div class="modal__text column column-m-12 column-t-8-nest">
 						<h3 x-text="modalName"></h3>
 						<h4 x-text="modalPosition"></h4>
 						<p x-text="modalBio"></p>
@@ -96,5 +107,6 @@
 		</div>
 	</div>
 
-	
 </section>
+
+<?php endif; ?>

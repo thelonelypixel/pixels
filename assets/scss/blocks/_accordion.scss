@@ -9,9 +9,10 @@
     background: none;
     border: none;
     padding: 15px 0;
+    font-size: clamp(1.8rem, 2.5vw, $h4);
   }
   
   .block__accordion__content .accordion-question {
     padding: 15px 0;
-    border-bottom: 1px solid var(--color-neutral-600)
+    border-bottom: 1px solid $light-grey;
   }

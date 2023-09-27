@@ -6,17 +6,17 @@
  */
 
 $heading = get_field('heading');
-$hide_block = get_field('hide_block');
+$show_block = get_field('show_block');
 $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' : '';
 ?>
 
-<?php if( $hide_block ) : ?>
+<?php if( $show_block ) : ?>
 
 <section <?php echo $anchor; ?> class="block block__accordion">
 	<div class="container">
 		<div class="row row--justified">
 			<div class="block__accordion__heading column column-m-12">
-				<h3><?php echo $heading; ?></h3>
+				<h2><?php echo $heading; ?></h2>
 			</div>
 		</div>
 		<div class="row row--justified">

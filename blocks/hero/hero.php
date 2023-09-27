@@ -8,6 +8,7 @@
  $field = [
 	// General Options
     'hero_type' => get_field('hero_type'),
+	'show_block' => get_field('show_block'),
 
 	// Content
     'image' => get_field('hero_image'),
@@ -16,6 +17,8 @@
     'content' => get_field('hero_content'),
 ];
 ?>
+
+<?php if( $field['show_block'] ) : ?>
 
 <section class="block block__hero <?php echo $field['hero_type']; ?>">
 
@@ -48,3 +51,5 @@
     <?php endif; ?>
 
 </section>
+
+<?php endif; ?>

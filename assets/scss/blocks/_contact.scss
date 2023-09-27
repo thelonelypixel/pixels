@@ -1,0 +1,58 @@
+.block__contact {
+    padding: $block-padding;
+
+    .block__contact__content {
+        order: 1;
+    }
+
+    .block__contact__form {
+        order: 2;
+    }
+
+    &--flipped {
+
+        .block__contact__content {
+            @include bp(tablet) {
+                order: 2;
+            }
+        }
+
+        .block__contact__form {
+            @include bp(tablet) {
+                order: 1;
+            }
+        }
+    }
+
+    &--default {
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+
+            .block__contact__content {
+                @include bp(desktop) {
+                    text-align: center;
+                }
+
+               .block-list {
+                     @include bp(desktop) {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                     }
+
+                    li {
+
+                        @include bp(desktop) {
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            width: 33.333%;
+                        }
+                    }
+               }
+            }
+        }
+    }
+}

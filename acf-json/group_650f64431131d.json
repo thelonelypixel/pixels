@@ -1,11 +1,11 @@
 {
     "key": "group_650f64431131d",
-    "title": "Hide Block",
+    "title": "Show Block",
     "fields": [
         {
             "key": "field_650f6443f7b5b",
-            "label": "Hide Block",
-            "name": "hide_block",
+            "label": "Show Block",
+            "name": "show_block",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695508316
+    "modified": 1695677894
 }

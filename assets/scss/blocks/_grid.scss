@@ -1,7 +1,10 @@
 .block__grid {
 	&__intro {
-		margin-bottom: 60px;
-		max-width: 50%;
+		max-width: 100%;
+
+		@include bp(desktop) {
+			max-width: 50%;
+		}
 	}
 
 	&__grid {
@@ -38,6 +41,11 @@
 		.grid-item__image {
 			margin-bottom: 20px;
 			display: block;
+
+			img {
+				width: 100%;
+				height: auto;
+			}
 		}
 
 		&__item {
@@ -57,7 +65,7 @@
 				margin-right: 10px;
 
 				svg {
-					path: var(--color-primary-teal);
+					path: $primary;
 				}
 			}
 		}
@@ -66,7 +74,7 @@
 	// BOX STYLE
 	&--style--box {
 		.grid-item {
-			background: var(--color-neutral-300);
+			background: $light-grey;
 
 			&__icon {
 				padding: 20px 20px 0;
@@ -86,7 +94,11 @@
 	&--center {
 
 		.block__grid__intro {
-			margin: 0 auto 40px;
+			margin: 0 0 40px;
+
+			@include bp(desktop) {
+				margin: 0 auto 40px;
+			}
 		}
 
 		@include bp(desktop) {

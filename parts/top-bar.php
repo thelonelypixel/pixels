@@ -16,7 +16,7 @@
 	
 		<div class="column column-m-12">
 
-			<div class="row row--middle">
+			<div class="row row--middle row--justified">
 
 			<!-- Logo -->
 			<a class="brand" href="<?= esc_url(home_url('/')); ?>">

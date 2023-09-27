@@ -6,8 +6,8 @@
  */
 $field = [
 	// General Options
-	'hide_block' => get_field('hide_block'),
     'background' => get_field('background'),
+	'show_block' => get_field('show_block'),
 
 	// Content
     'left_content' => get_field('left_content'),
@@ -18,7 +18,7 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 
 ?>
 
-<?php if( ! $field['hide_block'] ) : ?>
+<?php if( $field['show_block'] ) : ?>
 
 <section <?php echo $anchor; ?> class="block block__dual-text <?php echo $field['background']; ?>">
 	<div class="container">

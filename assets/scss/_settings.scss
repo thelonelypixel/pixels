@@ -15,8 +15,8 @@ $primary: #1a5ad1;
 $secondary: #121826;
 $green: #01FFC5;
 $light-grey: #f2f2f2;
-$medium-grey: #eaeaea;
-$dark-grey: #cccccc;
+$medium-grey: #ccc;
+$dark-grey: #aeaeae;
 $dark: #4a4a4a;
 $darker: #2a2a2a;
 $darkest: #000000;
@@ -60,6 +60,13 @@ $cite-color: $dark-grey;
 $cite-pseudo-content: '\2014 \0020';
 $abbr-underline: 1px dotted $dark;
 $button-padding: 1.25rem 2rem;
+
+// Block Spacing
+$block-padding-small: 40px 0;
+$block-padding: 80px 0;
+
+$block-margin-bottom-small: 40px;
+$block-margin-bottom: 80px;
 
 // inputs
 $input-height:50px;

@@ -6,14 +6,12 @@
     margin:0 auto;
 
     @include bp(desktop) {
-        padding: 0;
 		width: 100%;
     }
 }
 
 .container--wide {
-	max-width:calc($global-width) * 1.2;
-	width: 90%;
+	max-width:calc($global-width * 1.2);
     margin:0 auto;
     padding: 0 2rem;
 
@@ -24,7 +22,7 @@
 }
 
 .container--narrow {
-	max-width:calc($global-width) / 1.2;
+	max-width: calc($global-width / 1.2);
 	width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
@@ -36,7 +34,7 @@
 }
 
 .container--thin {
-	max-width:calc($global-width) / 1.5;
+	max-width:calc($global-width / 1.5);
 	width: 100%;
     margin: 0 auto;
     padding: 0 5vw;
@@ -132,12 +130,6 @@ ul.row {
         padding-left: calc($global-padding * 2);
         padding-right: calc($global-padding * 2);
     }
-
-    @include bp(desktop) {
-        padding-left: calc($global-padding);
-        padding-right: calc($global-padding);
-    
-    }
 }
 
 
@@ -149,6 +141,7 @@ ul.row {
 
     .column-m-#{$i}-nest {
         max-width: calc(100% / 12) * $i;
+        padding: 0;
     }
 
     .column-m-order-#{$i} {
@@ -162,7 +155,7 @@ ul.row {
     @for $i from 1 through 12 {
 
         .column-t-#{$i} {
-            max-width: calc(100% / 12) * $i - 2%;
+            max-width: calc(100% / 12) * $i;
         }
 
         .column-t-#{$i}-nest {
@@ -183,7 +176,7 @@ ul.row {
     @for $i from 1 through 12 {
 
         .column-p-#{$i} {
-            max-width: calc(100% / 12) * $i - 2%;
+            max-width: calc(100% / 12) * $i;
         }
 
         .column-p-#{$i}-nest {
@@ -204,7 +197,7 @@ ul.row {
     @for $i from 1 through 12 {
 
         .column-d-#{$i} {
-            max-width: calc(100% / 12) * $i - 2%;
+            max-width: calc(100% / 12) * $i
         }
 
         .column-d-#{$i}-nest {

@@ -13,6 +13,7 @@ $fields = [
     'alignment' => get_field('alignment'),
     'image_type' => get_field('image_type'),
 	'columns' => get_field('columns'),
+    'show_block' => get_field('show_block'),
 
 	// Content
     'intro' => get_field('intro'),
@@ -22,6 +23,8 @@ $fields = [
 $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' : '';
 
 $class_names = ['block', 'block__grid', $fields['layout'], $fields['alignment'], $fields['style'], $fields['background']] ?>
+
+<?php if( $fields['show_block'] ) : ?>
 
 <section <?php echo $anchor; ?> class="<?php echo implode(' ', $class_names); ?>">
 	<div class="container">
@@ -87,3 +90,4 @@ $class_names = ['block', 'block__grid', $fields['layout'], $fields['alignment'],
 	</div>
 </section>
 
+<?php endif; ?>

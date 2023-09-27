@@ -59,3 +59,7 @@
 .acf-field-650f6443f7b5b .acf-input .acf-switch span {
   font-size: 0;
 }
+
+#editor .edit-post-layout__metaboxes {
+  margin-top: 80px;
+}

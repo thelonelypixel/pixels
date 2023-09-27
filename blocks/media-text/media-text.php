@@ -12,6 +12,7 @@ $field = [
     'media_type' => get_field('media_type'),
     'float_container' => get_field('float_container'),
     'layout' => get_field('layout'),
+	'show_block' => get_field('show_block'),
 
 	// Content
     'image' => get_field('image'),
@@ -36,6 +37,8 @@ if ($field['flip']) {
 
 $list_partial = ($field['layout'] === "block__media-text--large" && $field['add_list']) ? 'blocks/partials/list' : null;
 ?>
+
+<?php if( $field['show_block'] ) : ?>
 
 <section <?php echo $anchor; ?> class="<?php echo implode(' ', $class_names); ?>">
 	<div class="container <?php echo $field['float_container'] ? 'container--float' : ''; ?>">
@@ -63,3 +66,5 @@ $list_partial = ($field['layout'] === "block__media-text--large" && $field['add_
 		</div>
 	</div>
 </section>
+
+<?php endif; ?>

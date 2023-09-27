@@ -45,7 +45,6 @@
         margin: 20px 0;
         padding: 0;
         list-style: none;
-        font-size: 16px;
 
         li {
             display: flex;
@@ -81,12 +80,8 @@
         width: 400px;
         bottom: -100px;
         left: 40px;
-        background: var(--color-neutral-600);
+        background: $light-grey;
         padding: 20px;
-
-        p {
-            color: var(--color-neutral-100);
-        }
 
         &:before {
             display: none;
