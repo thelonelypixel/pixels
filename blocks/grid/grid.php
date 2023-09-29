@@ -73,8 +73,12 @@ $class_names = ['block', 'block__grid', $fields['layout'], $fields['alignment'],
                                 <?php endif; ?>
 
                                 <div class="grid-item__content">
-                                    <h3><?php echo $item['heading']; ?></h3>
-                                    <?php echo $item['content']; ?>
+                                    <?php if( $item['heading']): ?>
+                                        <h3><?php echo $item['heading']; ?></h3>
+                                    <?php endif; ?>
+                                    <?php if( $item['content']):
+                                        echo $item['content'];
+                                    endif; ?>
                                 </div>
                             </div>
                         <?php endwhile; ?>

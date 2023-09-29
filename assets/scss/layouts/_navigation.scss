@@ -256,7 +256,7 @@ nav.navbar {
 					.dropdown-item {
 						display: flex;
 						padding: 10px 0;
-						border-radius: 24px;
+						border-radius: 8px;
 
 						@include bp(desktop) {
 							display: block;
@@ -281,9 +281,8 @@ nav.navbar {
 							display: block;
 							background: $medium-grey;
 							padding: 1rem;
-							width: 40px;
 							height: 40px;
-							border-radius: 24px;
+							border-radius: 8px;
 							margin-right: 10px;
 
 							@include bp(desktop) {

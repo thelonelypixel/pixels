@@ -58,6 +58,7 @@ function allowed_block_types ( $block_editor_context, $editor_context ) {
             'acf/accordion',
             'acf/team',
             'acf/contact',
+            'acf/breadcrumbs',
 		);
 	}
 

@@ -1,0 +1,16 @@
+{
+    "name": "acf/breadcrumbs",
+    "title": "Breadcrumbs",
+    "description": "A custom breadcrumbs block.",
+    "style": [ "file:./breadcrumbs.css" ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["breadcrumbs", "quote"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "breadcrumbs.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

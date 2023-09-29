@@ -98,3 +98,44 @@ function custom_numeric_posts_nav() {
         printf( '<li>%s</li>' . "\n", get_next_posts_link() );
     echo '</ul></div>' . "\n";
 }
+
+// Custom Breadcrumbs
+function custom_breadcrumbs() {
+    global $post;
+
+    $breadcrumbs = array();
+    $homeLink = get_home_url();
+
+    // Home page
+    $breadcrumbs[] = array('url' => $homeLink, 'title' => 'Home');
+
+    // For category, post and custom post type
+    if (is_category() || is_single()) {
+        $category = get_the_category();
+        if (count($category) > 0) {
+            $breadcrumbs[] = array('url' => get_category_link($category[0]->term_id), 'title' => $category[0]->name);
+        }
+        if (is_single()) {
+            $breadcrumbs[] = array('url' => get_permalink($post->ID), 'title' => get_the_title($post->ID));
+        }
+    } elseif (is_page() && $post->post_parent) { // For pages
+        $parent_id = $post->post_parent;
+        $breadcrumbs_page = array();
+        while ($parent_id) {
+            $page = get_page($parent_id);
+            $breadcrumbs_page[] = array('url' => get_permalink($page->ID), 'title' => get_the_title($page->ID));
+            $parent_id = $page->post_parent;
+        }
+        $breadcrumbs = array_merge($breadcrumbs, array_reverse($breadcrumbs_page));
+    }
+
+    // Append the current page to the breadcrumbs
+    $current_page_title = get_the_title();
+    $breadcrumbs[] = array(
+        'title' => $current_page_title,
+        'url'   => get_permalink()
+    );
+
+
+    return $breadcrumbs;
+}

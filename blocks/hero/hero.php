@@ -37,7 +37,7 @@
 	<?php if ( $field['hero_type'] == "block__hero--video" ): ?>
 		<!-- Video -->
 		<div class="block__hero__video">
-			<video src="<?php echo $field['video']; ?>" autoplay loop playsinline></video>
+			<video src="<?php echo $field['video']; ?>" autoplay loop muted playsinline></video>
             <div class="overlay"></div>
 		</div>
 	<?php endif; ?>
