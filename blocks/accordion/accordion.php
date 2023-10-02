@@ -5,18 +5,33 @@
  * @param array $block The block settings and attributes.
  */
 
-$heading = get_field('heading');
-$show_block = get_field('show_block');
+$field = [
+    'heading'      => get_field('heading'),
+    'show_block'   => get_field('show_block'),
+    'padding_top'  => get_field('padding_top'),
+    'padding_bottom' => get_field('padding_bottom')
+];
+
 $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' : '';
-?>
+$style = ''; // Initialize an empty style string.
 
-<?php if( $show_block ) : ?>
+// Check if padding-top value exists, then append the value and unit to the style string.
+if (!empty($field['padding_top'])) {
+    $style .= 'padding-top: ' . esc_attr($field['padding_top']) . 'px;';
+}
 
-<section <?php echo $anchor; ?> class="block block__accordion">
+// Check if padding-bottom value exists, then append the value and unit to the style string.
+if (!empty($field['padding_bottom'])) {
+    $style .= 'padding-bottom: ' . esc_attr($field['padding_bottom']) . 'px;';
+}
+
+if( $field['show_block'] ) : ?>
+
+<section <?php echo $anchor; ?> class="block block__accordion" <?php if ($style) echo 'style="' . $style . '"'; ?>>
 	<div class="container">
 		<div class="row row--justified">
 			<div class="block__accordion__heading column column-m-12">
-				<h2><?php echo $heading; ?></h2>
+				<h2><?php echo $field['heading']; ?></h2>
 			</div>
 		</div>
 		<div class="row row--justified">

@@ -9,12 +9,29 @@ $field = [
 	// General Options
     'background' => get_field('background'),
 	'show_block' => get_field('show_block'),
+	'padding_top'      => get_field('padding_top'),
+    'padding_bottom'   => get_field('padding_bottom'),
+
 	// Content
 ];
 
+$anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' : '';
+
+$style = ''; // Initialize an empty style string.
+
+// Check if padding-top value exists, then append the value and unit to the style string.
+if (!empty($field['padding_top'])) {
+    $style .= 'padding-top: ' . esc_attr($field['padding_top']) . 'px;';
+}
+
+// Check if padding-bottom value exists, then append the value and unit to the style string.
+if (!empty($field['padding_bottom'])) {
+    $style .= 'padding-bottom: ' . esc_attr($field['padding_bottom']) . 'px;';
+}
+
 if ($field['show_block']): ?>
 
-<section class="block block__team" x-data="{ openModal: function(img, name, position, bio) { this.modalImage = img; this.modalName = name; this.modalPosition = position; this.modalBio = bio; this.isModalOpen = true; document.body.classList.add('no-scroll'); } , isModalOpen: false, modalImage: '', modalName: '', modalPosition: '', modalBio: '' }">
+<section <?php echo $anchor; ?> class="block block__team" x-data="{ openModal: function(img, name, position, bio) { this.modalImage = img; this.modalName = name; this.modalPosition = position; this.modalBio = bio; this.isModalOpen = true; document.body.classList.add('no-scroll'); } , isModalOpen: false, modalImage: '', modalName: '', modalPosition: '', modalBio: '' }" <?php if ($style) echo 'style="' . $style . '"'; ?>>
 
 	<div class="container">
 

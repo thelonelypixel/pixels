@@ -235,6 +235,26 @@
                 "param": "block",
                 "operator": "==",
                 "value": "all"
+            },
+            {
+                "param": "block",
+                "operator": "!=",
+                "value": "acf\/breadcrumbs"
+            },
+            {
+                "param": "block",
+                "operator": "!=",
+                "value": "acf\/grid"
+            },
+            {
+                "param": "block",
+                "operator": "!=",
+                "value": "acf\/team"
+            },
+            {
+                "param": "block",
+                "operator": "!=",
+                "value": "acf\/media"
             }
         ]
     ],
@@ -247,5 +267,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695508111
+    "modified": 1696264521
 }

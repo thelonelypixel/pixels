@@ -13,6 +13,8 @@ $field = [
     'float_container' => get_field('float_container'),
     'layout' => get_field('layout'),
 	'show_block' => get_field('show_block'),
+	'padding_top'      => get_field('padding_top'),
+    'padding_bottom'   => get_field('padding_bottom'),
 
 	// Content
     'image' => get_field('image'),
@@ -36,11 +38,24 @@ if ($field['flip']) {
 }
 
 $list_partial = ($field['layout'] === "block__media-text--large" && $field['add_list']) ? 'blocks/partials/list' : null;
+
+$style = ''; // Initialize an empty style string.
+
+// Check if padding-top value exists, then append the value and unit to the style string.
+if (!empty($field['padding_top'])) {
+    $style .= 'padding-top: ' . esc_attr($field['padding_top']) . 'px;';
+}
+
+// Check if padding-bottom value exists, then append the value and unit to the style string.
+if (!empty($field['padding_bottom'])) {
+    $style .= 'padding-bottom: ' . esc_attr($field['padding_bottom']) . 'px;';
+}
+
 ?>
 
 <?php if( $field['show_block'] ) : ?>
 
-<section <?php echo $anchor; ?> class="<?php echo implode(' ', $class_names); ?>">
+<section <?php echo $anchor; ?> class="<?php echo implode(' ', $class_names); ?>" <?php if ($style) echo 'style="' . $style . '"'; ?>>
 	<div class="container <?php echo $field['float_container'] ? 'container--float' : ''; ?>">
 		<div class="row row--justified">
 			<div class="block__media-text__media column column-m-12 column-t-6">
