@@ -51,9 +51,7 @@ if (!empty($field['padding_bottom'])) {
     $style .= 'padding-bottom: ' . esc_attr($field['padding_bottom']) . 'px;';
 }
 
-?>
-
-<?php if( $field['show_block'] ) : ?>
+if( $field['show_block'] ) : ?>
 
 <section <?php echo $anchor; ?> class="<?php echo implode(' ', $class_names); ?>" <?php if ($style) echo 'style="' . $style . '"'; ?>>
 	<div class="container <?php echo $field['float_container'] ? 'container--float' : ''; ?>">

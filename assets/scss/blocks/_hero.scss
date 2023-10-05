@@ -1,5 +1,5 @@
 .block__hero {
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@
 
     &--simple {
         height: 400px;
-        background: $primary;
+        background: var(--primary);
 
         @include bp(desktop) {
             height: 750px;
@@ -17,7 +17,7 @@
     }
 
     &--image {
-        height: 600px;
+        min-height: 600px;
     }
 
     &--blog {

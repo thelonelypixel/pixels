@@ -15,7 +15,6 @@
 html {
 	display: block !important;
 	box-sizing: border-box;
-	background: $light-grey;
 	font-size: 62.5%;
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
@@ -27,13 +26,22 @@ html {
 body {
 	line-height: $baseline;
 	font-size: $global-font-size;
-	color: $text-color;
+	color: var(--text-color);
 	font-family: $global-font-family;
 	font-weight: $global-weight-normal;
 	overflow-x: hidden;
 
 	&.mobile-menu-active {
 		max-height: 100vh;
+	}
+
+	&.disable-animations {
+		* {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
 	}
 }
 
@@ -107,18 +115,3 @@ body {
     overflow: hidden;
 }
 
-// Accessibility Styles
-.skip-to-content {
-    position: absolute;
-    top: -80px;
-    left: 10px;
-    background: #000;
-    color: #fff;
-    padding: 10px 15px;
-    z-index: 99999;
-    transition: top 0.2s;
-}
-
-.skip-to-content:focus {
-    top: 10px;
-}

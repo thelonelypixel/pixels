@@ -12,8 +12,7 @@
 
 	<body <?php body_class(); ?>>
 
-	<a href="#scroll-to" class="skip-to-content">Skip to Content</a>
-
+	<?php get_template_part('parts/accessibility'); ?>
 
 	<?php 
 		$sticky = get_field('sticky', 'options');

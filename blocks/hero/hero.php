@@ -16,9 +16,8 @@
 	'size'  => 'full',
     'content' => get_field('hero_content'),
 ];
-?>
 
-<?php if( $field['show_block'] ) : ?>
+if( $field['show_block'] ) : ?>
 
 <section class="block block__hero <?php echo $field['hero_type']; ?>">
 

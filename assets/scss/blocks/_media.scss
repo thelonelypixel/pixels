@@ -62,8 +62,8 @@
             }
 
             path {
-                stroke: $primary;
-                fill: $lightest;
+                stroke: var(--primary);
+                fill: var(--lightest);
             }
         }
     }

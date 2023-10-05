@@ -31,7 +31,7 @@ $anchor = !empty($block['anchor']) ? 'id="' . esc_attr($block['anchor']) . '" ' 
 
 if( $field['show_block'] ) : ?>
 
-<section <?php echo $anchor; ?> class="block block__media <?php echo $field['background']; ?> <?php if( !$field['container'] ) : ?>no-margin<?php endif; ?>">
+<section <?php echo $anchor; ?> class="block block__media <?php echo $field['background']; ?>">
 
 	<?php if( $field['container'] ) : ?>
 		<div class="container">

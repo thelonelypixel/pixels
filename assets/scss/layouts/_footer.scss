@@ -16,7 +16,7 @@ footer[role="contentinfo"] {
         }
 
 		h2,h3,h4,h5,h6,a, p {
-			color: $lightest;
+			color: var(--lightest);
 		}
 
 		.site-footer__column {
@@ -45,12 +45,12 @@ footer[role="contentinfo"] {
 			a {
 				display: inline-block;
 				text-decoration: none;
-				color: $lightest;
+				color: var(--lightest);
 				transition: 300ms $cubic;
 				text-wrap: nowrap;
 
 				&:hover {
-					color: $primary;
+					color: var(--primary);
 				}
 			}
 
@@ -62,11 +62,11 @@ footer[role="contentinfo"] {
 				li {
 					a {
 						text-decoration: none;
-						color: $lightest;
+						color: var(--lightest);
 						transition: 300ms $cubic;
 
 						&:hover {
-							color: $primary;
+							color: var(--primary);
 						}
 					}
 				}
@@ -79,7 +79,7 @@ footer[role="contentinfo"] {
 						margin-right: 2rem;
 
 						svg path {
-							fill: $primary;
+							fill: var(--primary);
 						}
 					}
 				}
@@ -94,7 +94,7 @@ footer[role="contentinfo"] {
 
         p {
             margin: 0;
-			color: $lightest;
+			color: var(--lightest);
         }
 	}
 
@@ -117,7 +117,7 @@ footer[role="contentinfo"] {
 			position: absolute;
 			top: 0;
 			left: 0;
-			color: $lightest;
+			color: var(--lightest);
 			transition: 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 			width: 100%;
 			text-align: left;

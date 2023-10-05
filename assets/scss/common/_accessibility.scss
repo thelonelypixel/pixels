@@ -1,0 +1,220 @@
+// Accessibility Styles
+.accessibility {
+    position: relative;
+    z-index: 99999999;
+
+    #accessibilityBtn {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        background: var(--primary-color);
+        border: none;
+        border-radius: 100px;
+        padding: 10px;
+        bottom: 30px;
+        left: 30px;
+        transition: 300ms $cubic;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        svg {
+            width: 24px;
+            height: auto;
+
+            path {
+                fill: $lightest;
+            }
+        }
+    }
+    
+}
+
+.accessibility-modal {
+    position: fixed;
+    left: 30px;
+    top: 30px;
+    padding: 30px;
+    height: calc(100vh - 60px);
+    background: $lightest;
+    box-shadow: 0 0 10px rgba($darkest, 0.2);
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+
+    #closeBtn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: none;
+        width: 40px;
+        height: 40px;
+        border: none;
+
+        svg {
+            width: 30px;
+            height: auto;
+        }
+    }
+
+    /* Option Styling */
+    .option {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        padding: 20px 0;
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+    }
+
+    /* Toggle Switch Styling */
+    .toggle input {
+        display: none;
+    }
+
+    .toggle {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-right: 20px;
+    }
+
+    .toggle input:checked + label .slider {
+        background-color: var(--primary-color);
+    }
+
+    .toggle input:checked + label span {
+        color: var(--lightest);
+    }
+
+    .toggle label {
+        cursor: pointer;
+        position: absolute;
+        width: 60px;
+        height: 30px;
+        border-radius: 100px;
+        background-color: #ccc;
+        border: 1px solid #aaa;
+        transition: background-color 0.3s;
+        display: flex;
+        align-items: center;
+    }
+
+    .toggle label .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 100%;
+        background-color: white;
+        border-radius: 34px;
+        transition: transform 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .toggle input:checked + label .slider {
+        transform: translateX(43%);
+    }
+
+    /* Description Styling */
+    .description {
+        flex-grow: 1;
+        padding-left: 10px;
+    }
+
+    .description h2 {
+        margin: 0;
+    }
+
+    .description p {
+        margin: 0.5rem 0 0;
+    }
+    
+}
+
+.skip-to-content {
+    position: absolute;
+    top: -80px;
+    left: 10px;
+    background: #000;
+    color: #fff;
+    padding: 10px 15px;
+    z-index: 99999;
+    transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+    top: 10px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+	width: 40px;
+	height: 40px;
+    display: none;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.focus-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: none;
+
+    .adhd-focus & {
+        display: block;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        background: rgba($darkest, .5);
+        z-index: 99999;
+    }
+
+    &::before {
+        top: 0;
+        height: var(--beforeHeight, 50%);  // adjusted via JS
+    }
+
+    &::after {
+        bottom: 0;
+        height: var(--afterHeight, 50%);  // adjusted via JS
+    }
+
+    .focus-bar {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        height: 100px;  // adjust as per need
+        background: transparent;
+        z-index: 100000;  // above overlay
+        pointer-events: none;  // allow interaction with content underneath
+    }
+}

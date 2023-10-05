@@ -24,6 +24,30 @@ $light: #eaeaea;
 $lighter: #f2f2f2;
 $lightest: #ffffff;
 
+// Accessible Colours
+$primary-contrast: #13387c;
+$secondary-contrast: #121826;
+
+$primary-color: var(--primary-color);
+
+body {
+  --primary-color: #{$primary};
+  --secondary-color: #{$secondary};
+  --text-color: #{$text-color};
+  --lightest: #{$lightest};
+  --lighter: #{$lighter};
+  --light: #{$light};
+  --darkest: #{$darkest};
+  --darker: #{$darker};
+  --dark: #{$dark};
+}
+
+body.high-contrast {  
+  --primary-color: #{$primary-contrast};
+  --secondary-color: #{$secondary-contrast};
+  --text-color: #{$darkest};
+}
+
 // Typography settings
 $baseline: 1.5;
 $scale: 1.614;
@@ -71,8 +95,8 @@ $block-margin-bottom: 80px;
 // inputs
 $input-height:50px;
 $input-border-color:$light-grey;
-$input-focus-color:$primary;
-$input-focus-border-color:$primary;
+$input-focus-color:var(--primary-color);
+$input-focus-border-color:var(--primary-color);
 
 // tables
 $table-striped: even;

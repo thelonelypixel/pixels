@@ -45,7 +45,7 @@ p {
     font-weight: $global-weight-normal;
     line-height: $baseline;
     margin-top: 0;
-    color: $text-color;
+    color: var(--text-color);
     margin-bottom: $margin-bottom;
 }
 
@@ -69,7 +69,7 @@ blockquote {
     position: relative;
     margin: 0 0 4rem;
     padding: 1rem 4rem;
-	border-left: 8px solid $primary;
+	border-left: 8px solid var(--primary-color);
 	font-size: 2.8rem;
 
     &:before {
@@ -87,7 +87,7 @@ blockquote {
     p {
 		font-size: 2.4rem !important;
 		font-weight: 700;
-		color: $text-color;
+		color: var(--text-color);
 		line-height: 3rem;
         position: relative;
         z-index: 1;

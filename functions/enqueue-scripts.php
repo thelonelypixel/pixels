@@ -52,7 +52,7 @@ function site_scripts() {
 	wp_register_style('site-css', get_template_directory_uri() . '/dist/css/style.min.css', array(), filemtime( get_template_directory().'/dist/css/style.min.css' ) );
     wp_enqueue_style('site-css');
 
-    // enqeue style.css and put it in the header
+    // enqeue style.css and put it in the footer
     wp_enqueue_style( 'site-style', get_stylesheet_uri() ); 
 
 }

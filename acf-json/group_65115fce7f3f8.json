@@ -41,6 +41,26 @@
             "ui": 1
         },
         {
+            "key": "field_651d816816373",
+            "label": "Back to Top?",
+            "name": "back_to_top",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_65115fe019631",
             "label": "Footer Text",
             "name": "footer_text",
@@ -181,5 +201,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695638062
+    "modified": 1696432513
 }

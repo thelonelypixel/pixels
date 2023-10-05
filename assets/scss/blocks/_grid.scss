@@ -65,7 +65,7 @@
 				margin-right: 10px;
 
 				svg {
-					path: $primary;
+					path: var(--primary-color);
 				}
 			}
 		}

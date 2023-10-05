@@ -4,7 +4,7 @@
     display: inline-block;
     margin-top: 0;
     margin-bottom: $margin-bottom;
-    background: $primary;
+    background: var(--primary-color);
     color: $lightest;
     line-height: 1.7;
     font-weight: 700;
@@ -19,7 +19,6 @@
     cursor: pointer;
 
     &:hover {
-        background: lighten($primary, 10%);
         color: $lightest;
     }
 }
