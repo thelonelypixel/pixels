@@ -68,14 +68,16 @@ function applySettings() {
         const focusBar = document.querySelector(".focus-bar");
         const overlay = document.querySelector(".focus-overlay");
         
-        // Using clientY to get cursor position within the viewport
+        // position the bar
         const barMiddlePosition = e.clientY - focusBar.offsetHeight / 2;
-        
         focusBar.style.top = barMiddlePosition + "px";
         
-        // Update ::before and ::after heights based on focus bar position
+        // Update ::before and ::after pseudo-element heights
         overlay.style.setProperty("--beforeHeight", barMiddlePosition + "px");
         overlay.style.setProperty("--afterHeight", (window.innerHeight - barMiddlePosition - focusBar.offsetHeight) + "px");
+        
+        // Optionally, if you want to prevent the focus bar from intercepting clicks, uncomment the line below:
+        // focusBar.style.pointerEvents = 'none';
     });
 }
 

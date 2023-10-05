@@ -11,7 +11,7 @@
 		</button>
 	<?php endif; ?>
 
-	<footer class="site-footer" role="contentinfo">
+	<footer id="site-footer" class="site-footer" role="contentinfo">
 
 		<?php 
 			echo $container ? '<div class="container">' : '';

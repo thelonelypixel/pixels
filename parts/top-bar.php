@@ -27,7 +27,7 @@
 
 			<?php if( $menu_items ): ?>
 
-				<nav class="navbar <?php echo $layout !== 'header-layout--hamburger' ? $style : ''; ?>" x-data="{ open: null, isNavOpen: false }" role="navigation" aria-label="Main Navigation">
+				<nav id="navbar" class="navbar <?php echo $layout !== 'header-layout--hamburger' ? $style : ''; ?>" x-data="{ open: null, isNavOpen: false }" role="navigation" aria-label="Main Navigation">
 
 					<!-- Hamburger button -->
 					<button 

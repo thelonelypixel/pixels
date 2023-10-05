@@ -4,7 +4,10 @@
 		<div class="focus-bar"></div>
 	</div>
 
-	<a href="#scroll-to" class="skip-to-content">Skip to Content</a>
+	<a href="#scroll-to" class="skip-link button">Skip to Content</a>
+	<a href="#navbar" class="skip-link button">Skip to Navigation</a>
+    <a href="#accessibilityBtn" class="skip-link button">Skip to Accessibility Options</a>
+    <a href="#site-footer" class="skip-link button">Skip to Footer</a>
 
 	<div x-data="{ open: false }" class="accessibility">
 		<button @click="open = true" :aria-expanded="open.toString()" id="accessibilityBtn">
@@ -34,7 +37,7 @@
 					<!-- Font Size Option -->
 					<div class="option">
 						<div class="toggle">
-						<input type="checkbox" id="largeTextToggle" aria-labelledby="largeTextHeading" aria-describedby="largeTextDescription">
+						<input type="checkbox" id="largeTextToggle" class="visually-hidden" aria-labelledby="largeTextHeading" aria-describedby="largeTextDescription">
 						<label for="largeTextToggle">
 							<span class="slider"></span>
 						</label>
@@ -48,7 +51,7 @@
 					<!-- High Contrast Option -->
 					<div class="option">
 						<div class="toggle">
-						<input type="checkbox" id="highContrastToggle" aria-labelledby="highContrastHeading" aria-describedby="highContrastDescription">
+						<input type="checkbox" id="highContrastToggle"  class="visually-hidden" aria-labelledby="highContrastHeading" aria-describedby="highContrastDescription">
 						<label for="highContrastToggle">
 							<span class="slider"></span>
 						</label>
@@ -62,7 +65,7 @@
 					<!-- Disable Animations Option -->
 					<div class="option">
 						<div class="toggle">
-						<input type="checkbox" id="disableAnimationsToggle" aria-labelledby="disableAnimationsHeading" aria-describedby="disableAnimationsDescription">
+						<input type="checkbox" id="disableAnimationsToggle"  class="visually-hidden" aria-labelledby="disableAnimationsHeading" aria-describedby="disableAnimationsDescription">
 						<label for="disableAnimationsToggle">
 							<span class="slider"></span>
 						</label>
@@ -76,7 +79,7 @@
 					<!-- ADHD Focus Mode -->
 					<div class="option">
 						<div class="toggle">
-							<input type="checkbox" id="adhdFocusToggle" aria-labelledby="adhdFocusHeading" aria-describedby="adhdFocusDescription">
+							<input type="checkbox" id="adhdFocusToggle"  class="visually-hidden" aria-labelledby="adhdFocusHeading" aria-describedby="adhdFocusDescription">
 							<label for="adhdFocusToggle">
 								<span class="slider"></span>
 							</label>

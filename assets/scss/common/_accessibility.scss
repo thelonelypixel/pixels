@@ -1,4 +1,9 @@
 // Accessibility Styles
+
+*:focus {
+    outline: 2px solid var(--primary-color);
+}
+
 .accessibility {
     position: relative;
     z-index: 99999999;
@@ -76,7 +81,7 @@
 
     /* Toggle Switch Styling */
     .toggle input {
-        display: none;
+        // display: none;
     }
 
     .toggle {
@@ -90,6 +95,10 @@
     .toggle input:checked + label .slider {
         background-color: var(--primary-color);
     }
+
+    input[type="checkbox"]:focus + label {
+        outline: 2px solid #000;  /* Adjust to fit your design */
+    }    
 
     .toggle input:checked + label span {
         color: var(--lightest);
@@ -182,6 +191,7 @@
     height: 100%;
     z-index: 99999;
     display: none;
+    pointer-events: none;
 
     .adhd-focus & {
         display: block;
@@ -217,4 +227,29 @@
         z-index: 100000;  // above overlay
         pointer-events: none;  // allow interaction with content underneath
     }
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 99999;
+
+    &:focus {
+        left: 10px;
+        top: 10px;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
